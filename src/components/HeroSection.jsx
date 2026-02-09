@@ -120,28 +120,35 @@ const HeroSection = () => {
             {/* Right Side - Content */}
             <div className="w-full lg:w-1/2 flex flex-col items-center">
               <div className="text-center mb-6 md:mb-8">
+                {/* Tag - Small, uppercase, letter-spaced with pill background */}
+                <span className="inline-block text-xs md:text-sm text-emerald-700 font-medium uppercase tracking-[0.2em] mb-4 md:mb-5 bg-emerald-100/80 px-4 py-1.5 rounded-full">
+                  AI Learning Companion
+                </span>
                 {/* Tagline - Smaller on mobile, allows wrapping */}
                 <h1 className="hero-tagline text-xl sm:text-2xl md:text-3xl lg:text-[32px]">
-                  Helps students understand lessons
+                  Understands how students learn
                 </h1>
                 <h1 className="hero-tagline text-xl sm:text-2xl md:text-3xl lg:text-[32px] mt-1">
-                  and discover curiosity early.
+                  and helps <span className="gradient-text">curiosity</span> grow early.
                 </h1>
               </div>
 
               {/* CTA Buttons - Centered */}
               <div className="flex flex-col items-center gap-3 md:gap-4 w-full max-w-sm px-4 md:px-0">
-                <Button 
-                  className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-5 md:px-8 md:py-7 text-sm md:text-base rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 uppercase tracking-wider"
-                >
-                  Start Learning
-                </Button>
+                <a href="https://app.budlee.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button 
+                    className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-5 md:px-8 md:py-7 text-sm md:text-base rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2"
+                  >
+                    Start Learning with Budlee
+                    <span className="text-lg">→</span>
+                  </Button>
+                </a>
                 
                 {/* School Link */}
                 <p className="text-gray-500 text-sm md:text-base mt-1 md:mt-2 text-center">
                   Are you a school?{' '}
                   <a 
-                    href="#" 
+                    href="/schools" 
                     className="gradient-text font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
                   >
                     Get Budlee for Your School
