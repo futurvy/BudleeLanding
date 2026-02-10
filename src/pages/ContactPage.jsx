@@ -85,7 +85,7 @@ const ContactPage = () => {
                       <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium">Budlee AI Corporate Office</p>
-                        <p>Kannur University LEAP Startup Incubation Centre</p>
+                        <p>LEAP Startup Incubation Centre</p>
                         <p>Kannur University, Thavakkara Campus</p>
                         <p>Civil Station P.O., Kannur, Kerala - 670002</p>
                         <p className="font-medium mt-1">India</p>

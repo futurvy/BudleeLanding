@@ -33,6 +33,14 @@ function App() {
           <Route path="/refund" element={<RefundPage />} />
           <Route path="/cookies" element={<CookiePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<LandingPage />} />
+          <Route path="/tutorials" element={<LandingPage />} />
+          <Route path="/documentation" element={<LandingPage />} />
+          <Route path="/help" element={<ContactPage />} />
+          <Route path="/our-story" element={<LandingPage />} />
+          <Route path="/team" element={<LandingPage />} />
+          <Route path="/careers" element={<LandingPage />} />
+          <Route path="/pricing" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </div>

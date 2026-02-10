@@ -105,7 +105,7 @@ const Footer = ({
               </p>
               <div className="flex items-center gap-3">
                 <Link to="/contact" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Contact
+                  Contact Us
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link to="/terms" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
@@ -117,7 +117,7 @@ const Footer = ({
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link to="/refund" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Refunds
+                  Refund Policy
                 </Link>                <span className="text-gray-300">|</span>
                 <Link to="/cookies" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
                   Cookies Policy

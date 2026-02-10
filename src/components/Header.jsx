@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 const Header = ({ 
   ctaText = "Explore Budlee AI", 
@@ -12,6 +13,8 @@ const Header = ({
   ctaTarget = "_self"
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +29,24 @@ const Header = ({
       e.preventDefault();
       ctaOnClick();
     }
+  };
+
+  const toggleDropdown = (menu) => {
+    setActiveDropdown(activeDropdown === menu ? null : menu);
+  };
+
+  const closeDropdown = () => {
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setActiveDropdown(null); // Close any open dropdowns
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
   };
 
   return (
@@ -49,38 +70,256 @@ const Header = ({
           </span>
         </Link>
 
-        {/* CTA Buttons */}
-        <div className="flex items-center gap-3">
-          {/* Secondary Button (if provided) */}
-          {secondaryCtaText && (
-            <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
-              <Button 
-                variant="outline"
-                className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
-              >
-                {secondaryCtaText}
-              </Button>
-            </a>
-          )}
-          
-          {/* Primary Button */}
-          {ctaOnClick ? (
-            <Button 
-              onClick={handlePrimaryClick}
-              className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+        {/* Navigation Menu */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {/* Resources Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => toggleDropdown('resources')}
+              className="flex items-center text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
             >
-              {ctaText}
-            </Button>
-          ) : (
-            <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
+              Resources
+              <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
+            </button>
+            {activeDropdown === 'resources' && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+                <Link to="/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Blog
+                </Link>
+                <Link to="/help" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Help Center
+                </Link>
+                <Link to="/tutorials" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Tutorials
+                </Link>
+                <Link to="/documentation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Documentation
+                </Link>
+                <Link to="/faqs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  FAQs
+                </Link>
+                <Link to="/book-demo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Book a Demo
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* About Us Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => toggleDropdown('about')}
+              className="flex items-center text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+            >
+              About Us
+              <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+            </button>
+            {activeDropdown === 'about' && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+                <Link to="/our-story" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Our Story
+                </Link>
+                <Link to="/mission-vision" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Mission and Vision
+                </Link>
+                <Link to="/team" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Meet our Team
+                </Link>
+                <Link to="/core-values" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Core Values
+                </Link>
+                <Link to="/careers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Careers
+                </Link>
+                <Link to="/partner-programs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Referral/Affiliate/Partner Programs
+                </Link>
+                <Link to="/contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Contact Us
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Pricing - No Dropdown */}
+          <Link to="/pricing" className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200">
+            Pricing
+          </Link>
+        </nav>
+
+        {/* CTA Buttons and Mobile Menu */}
+        <div className="flex items-center gap-3">
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Secondary Button (if provided) */}
+            {secondaryCtaText && (
+              <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
+                <Button 
+                  variant="outline"
+                  className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
+                >
+                  {secondaryCtaText}
+                </Button>
+              </a>
+            )}
+            
+            {/* Primary Button */}
+            {ctaOnClick ? (
               <Button 
+                onClick={handlePrimaryClick}
                 className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               >
                 {ctaText}
               </Button>
-            </a>
-          )}
+            ) : (
+              <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
+                <Button 
+                  className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  {ctaText}
+                </Button>
+              </a>
+            )}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 rounded-lg text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors duration-200"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <div 
+              className="md:hidden fixed inset-0 top-[73px] bg-black/20 backdrop-blur-sm z-30"
+              onClick={closeMobileMenu}
+            />
+            {/* Menu Content */}
+            <div className="md:hidden fixed inset-0 top-[73px] z-40">
+              <div className="bg-white/95 backdrop-blur-sm shadow-lg min-h-full">
+                <div className="px-4 py-6 space-y-4">
+                  {/* Mobile Navigation Menu */}
+                  <div className="space-y-4">
+                    {/* Resources Dropdown */}
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown('resources')}
+                        className="flex items-center justify-between w-full text-left text-gray-700 hover:text-green-600 font-medium py-2 transition-colors duration-200"
+                      >
+                        Resources
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
+                      </button>
+                      {activeDropdown === 'resources' && (
+                        <div className="mt-2 ml-4 space-y-2">
+                          <Link to="/blog" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Blog
+                          </Link>
+                          <Link to="/tutorials" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Tutorials
+                          </Link>
+                          <Link to="/documentation" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Documentation
+                          </Link>
+                          <Link to="/help" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Help Center
+                          </Link>
+                          <Link to="/faqs" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            FAQs
+                          </Link>
+                          <Link to="/book-demo" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Book a Demo
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* About Us Dropdown */}
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown('about')}
+                        className="flex items-center justify-between w-full text-left text-gray-700 hover:text-green-600 font-medium py-2 transition-colors duration-200"
+                      >
+                        About Us
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+                      </button>
+                      {activeDropdown === 'about' && (
+                        <div className="mt-2 ml-4 space-y-2">
+                          <Link to="/our-story" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Our Story
+                          </Link>
+                          <Link to="/team" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Meet our Team
+                          </Link>
+                          <Link to="/careers" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Careers
+                          </Link>
+                          <Link to="/contact" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Contact Us
+                          </Link>
+                          <Link to="/mission-vision" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Mission and Vision
+                          </Link>
+                          <Link to="/core-values" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Core Values
+                          </Link>
+                          <Link to="/partner-programs" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
+                            Referral/Affiliate/Partner Programs
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Pricing - No Dropdown */}
+                    <Link to="/pricing" className="block py-2 text-gray-700 hover:text-green-600 font-medium transition-colors duration-200" onClick={closeMobileMenu}>
+                      Pricing
+                    </Link>
+                  </div>
+
+                  {/* Mobile CTA Buttons */}
+                  <div className="pt-4 border-t border-gray-200 flex flex-row justify-center gap-3">
+                    {secondaryCtaText && (
+                      <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                        <Button 
+                          variant="outline"
+                          className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
+                        >
+                          {secondaryCtaText}
+                        </Button>
+                      </a>
+                    )}
+                    
+                    {ctaOnClick ? (
+                      <Button 
+                        onClick={() => { handlePrimaryClick(); closeMobileMenu(); }}
+                        className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                      >
+                        {ctaText}
+                      </Button>
+                    ) : (
+                      <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                        <Button 
+                          className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                        >
+                          {ctaText}
+                        </Button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </header>
   );

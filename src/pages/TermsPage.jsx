@@ -96,7 +96,7 @@ const TermsPage = () => {
               <p><a href="mailto:legal@budlee.ai" className="text-green-600 hover:text-green-700 underline">legal@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
-                Kannur University LEAP Startup Incubation Centre,<br />
+                LEAP Startup Incubation Centre,<br />
                 Kannur University, Thavakkara Campus,<br />
                 Civil Station P.O., Kannur, Kerala - 670002<br />
                 India
