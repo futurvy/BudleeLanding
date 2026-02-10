@@ -12,53 +12,34 @@ const MeetOurTeamPage = () => {
   const teamMembers = [
     {
       name: "Saleej Kuruniyan",
-      role: "Co-founder & CEO",
+      role: "Co-founder & Head of Technology",
       image: "/images/founders/saleej.jpg",
-      bio: "Saleej leads platform, product, and engineering at Budlee AI. A second-time founder with 15+ years of experience shipping production systems at scale for companies like Amazon, Intel, and Samsung.",
+      bio: "Saleej spearheads our technology vision, bringing over 15 years of experience in building scalable systems at industry leaders like Amazon, Intel, and Samsung. As a seasoned founder, he ensures our platform delivers reliable, high-performance solutions that scale with our growing user base.",
       linkedin: "https://www.linkedin.com/in/saleejkuruniyan/",
-      achievements: [
-        "Intel Technologies – Divisional Recognition Award (2017)",
-        "Sonim Technologies – Silver Award (2014 & 2015)",
-        "Samsung Research Centre – Employee of the Month (2012)"
-      ],
       experience: "CTO of Needoo AI Innovations, Senior DevOps Engineer at Wakeb Data Communications"
     },
     {
       name: "Abdul Rahim",
       role: "Co-founder & Head of AI",
       image: "/images/founders/abdul.jpg",
-      bio: "Abdul leads AI, data, and intelligence at Budlee AI. With extensive experience in data architecture and AI solutions at companies like Accenture and Proofpoint.",
+      bio: "Abdul drives our AI innovation, leveraging his deep expertise in data architecture and machine learning from his time at Accenture and Proofpoint. He focuses on creating intelligent systems that understand and adapt to educational needs.",
       linkedin: "https://www.linkedin.com/in/abdul-rahim-kamaludeen/",
-      achievements: [
-        "Led AI-powered medical report assistant project",
-        "Developed Eco Cycle waste management app",
-        "Active participant in hackathons and innovation challenges"
-      ],
       experience: "Data Architect at Accenture, Big Data Specialist at Proofpoint"
     },
     {
       name: "Mohammed Irfan",
       role: "Co-founder & Head of Growth",
       image: "/images/founders/irfan.jpg",
-      bio: "Irfan drives growth and partnerships at Budlee AI. Transitioned from telecom engineering to building education products, bringing hands-on experience with real users and market validation.",
+      bio: "Irfan leads our growth initiatives, combining his engineering background with a passion for education. Having successfully transitioned from telecom to edtech, he brings valuable insights from real user interactions and market validation.",
       linkedin: "https://www.linkedin.com/in/mohammed--irfan/",
-      achievements: [
-        "Successfully transitioned from telecom to product development",
-        "Led early-stage growth and sales execution"
-      ],
       experience: "Growth & Partnerships at Budlee AI, AI Product Manager at Needoo AI Innovations"
     },
     {
       name: "Suhail Mohammed",
       role: "Co-founder & Head of Product",
       image: "/images/founders/suhail.jpg",
-      bio: "Suhail leads product flow and learning experience design at Budlee AI. Brings experience from building AI agents, procurement platforms, and EV charging startups.",
+      bio: "Suhail shapes our product experience, drawing from his entrepreneurial journey building AI agents, procurement platforms, and EV solutions. He ensures every feature serves our mission of making learning more effective and engaging.",
       linkedin: "https://www.linkedin.com/in/suhail-in/",
-      achievements: [
-        "Co-founded Procuremart.ai (funded and incubated by Kadel Ventures)",
-        "Built UltraBanker AI-agent platform",
-        "Founded and led EV Space startup"
-      ],
       experience: "Product Head at Kadel Labs, Co-founder of Procuremart.ai"
     }
   ];
@@ -155,22 +136,6 @@ const MeetOurTeamPage = () => {
                       <p className="text-gray-600 text-sm">
                         {member.experience}
                       </p>
-                    </div>
-
-                    {/* Achievements */}
-                    <div>
-                      <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                        <Award className="w-4 h-4 text-green-500" />
-                        Achievements & Recognition
-                      </h4>
-                      <ul className="space-y-1">
-                        {member.achievements.map((achievement, idx) => (
-                          <li key={idx} className="text-gray-600 text-sm flex items-start gap-2">
-                            <span className="text-green-500 mt-1">•</span>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                 </div>
