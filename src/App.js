@@ -22,6 +22,7 @@ import HelpCenterPage from "./pages/HelpCenterPage";
 import PricingPage from "./pages/PricingPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
 import HelpArticlePage from "./pages/HelpArticlePage";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // Scroll to top component
 function ScrollToTop() {
@@ -44,6 +45,7 @@ function App() {
         }}
       >
         <ScrollToTop />
+        <WhatsAppButton />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/schools" element={<SchoolsPage />} />
