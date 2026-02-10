@@ -58,7 +58,7 @@ const PartnerProgramsPage = () => {
 
     try {
       const templateParams = {
-        from_name: `${e.target.firstName.value} ${e.target.lastName.value}`,
+        from_name: e.target.fullName.value,
         from_email: e.target.email.value,
         phone: e.target.phone.value,
         partner_type: e.target.partnerType.value,
@@ -361,33 +361,18 @@ const PartnerProgramsPage = () => {
               )}
 
               <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="partnerFirstName" className="block text-sm font-medium text-white mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="partnerFirstName"
-                      name="firstName"
-                      required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
-                      placeholder="Enter your first name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="partnerLastName" className="block text-sm font-medium text-white mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="partnerLastName"
-                      name="lastName"
-                      required
-                      className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
-                      placeholder="Enter your last name"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="partnerFullName" className="block text-sm font-medium text-white mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="partnerFullName"
+                    name="fullName"
+                    required
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                    placeholder="Enter your full name"
+                  />
                 </div>
 
                 <div>
