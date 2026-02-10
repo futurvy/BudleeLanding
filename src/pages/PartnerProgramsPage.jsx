@@ -1,13 +1,93 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import mixpanel from 'mixpanel-browser';
+import emailjs from '@emailjs/browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Users, DollarSign, TrendingUp, Award, Handshake, Target, CheckCircle, Star, Zap } from 'lucide-react';
+import { EMAILJS_CONFIG } from '../config/emailjs';
+import { Users, DollarSign, TrendingUp, Award, Handshake, Target, CheckCircle, Star, Zap, AlertCircle, Loader2 } from 'lucide-react';
+
+/*
+EmailJS Setup Instructions:
+1. Go to https://www.emailjs.com/ and create an account
+2. Create a new email service (Gmail, Outlook, etc.)
+3. Create an email template with these variables:
+   - {{from_name}} - Applicant's full name
+   - {{from_email}} - Applicant's email
+   - {{partner_type}} - Selected partnership type
+   - {{message}} - Applicant's message
+   - {{to_email}} - Should be set to sales@budlee.ai
+4. Replace the serviceId, templateId, and publicKey in handleFormSubmit with your actual IDs
+*/
 
 const PartnerProgramsPage = () => {
+  const [formStatus, setFormStatus] = useState(null); // null, 'loading', 'success', 'error'
+  const [formMessage, setFormMessage] = useState('');
+  const [selectedPartnershipType, setSelectedPartnershipType] = useState('');
+
   useEffect(() => {
     mixpanel.track('Partner Programs Page Viewed');
   }, []);
+
+  // Handle hash changes to pre-select partnership type
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#referral-form')) {
+        setSelectedPartnershipType('referral');
+      } else if (hash.startsWith('#affiliate-form')) {
+        setSelectedPartnershipType('affiliate');
+      } else if (hash.startsWith('#reseller-form')) {
+        setSelectedPartnershipType('reseller');
+      } else if (hash.startsWith('#integration-form')) {
+        setSelectedPartnershipType('integration');
+      }
+    };
+
+    // Check hash on component mount
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    setFormMessage('');
+
+    try {
+      const templateParams = {
+        from_name: `${e.target.firstName.value} ${e.target.lastName.value}`,
+        from_email: e.target.email.value,
+        phone: e.target.phone.value,
+        partner_type: e.target.partnerType.value,
+        message: e.target.message.value,
+        to_email: 'sales@budlee.ai'
+      };
+
+      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.PARTNER_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
+
+      setFormStatus('success');
+      setFormMessage('Thank you for your interest! We\'ll be in touch soon.');
+      e.target.reset();
+
+      // Track successful form submission
+      mixpanel.track('Partner Application Submitted', {
+        partnerType: templateParams.partner_type
+      });
+
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setFormStatus('error');
+      setFormMessage('There was an error sending your application. Please try again or contact us directly at sales@budlee.ai');
+
+      // Track form submission error
+      mixpanel.track('Partner Application Error', {
+        error: error.text || error.message
+      });
+    }
+  };
 
   const partnerPrograms = [
     {
@@ -22,7 +102,8 @@ const PartnerProgramsPage = () => {
         "Dedicated partner support"
       ],
       cta: "Join Referral Program",
-      link: "#referral-form"
+      link: "#referral-form",
+      type: "referral"
     },
     {
       icon: Handshake,
@@ -36,7 +117,8 @@ const PartnerProgramsPage = () => {
         "Flexible commission structure"
       ],
       cta: "Become an Affiliate",
-      link: "#affiliate-form"
+      link: "#referral-form",
+      type: "affiliate"
     },
     {
       icon: Target,
@@ -50,7 +132,8 @@ const PartnerProgramsPage = () => {
         "Priority technical support"
       ],
       cta: "Apply for Reseller",
-      link: "#reseller-form"
+      link: "#referral-form",
+      type: "reseller"
     },
     {
       icon: Award,
@@ -64,7 +147,8 @@ const PartnerProgramsPage = () => {
         "Technical integration support"
       ],
       cta: "Explore Integration",
-      link: "#integration-form"
+      link: "#referral-form",
+      type: "integration"
     }
   ];
 
@@ -154,6 +238,7 @@ const PartnerProgramsPage = () => {
                   <a
                     href={program.link}
                     className="inline-block bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full text-center"
+                    onClick={() => setSelectedPartnershipType(program.type)}
                   >
                     {program.cta}
                   </a>
@@ -259,7 +344,23 @@ const PartnerProgramsPage = () => {
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-              <form className="space-y-6">
+              {/* Status Message */}
+              {formStatus && (
+                <div className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${
+                  formStatus === 'success'
+                    ? 'bg-green-100/20 border border-green-300/30 text-green-100'
+                    : formStatus === 'error'
+                    ? 'bg-red-100/20 border border-red-300/30 text-red-100'
+                    : 'bg-blue-100/20 border border-blue-300/30 text-blue-100'
+                }`}>
+                  {formStatus === 'success' && <CheckCircle className="w-5 h-5 flex-shrink-0" />}
+                  {formStatus === 'error' && <AlertCircle className="w-5 h-5 flex-shrink-0" />}
+                  {formStatus === 'loading' && <Loader2 className="w-5 h-5 flex-shrink-0 animate-spin" />}
+                  <span>{formMessage}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="partnerFirstName" className="block text-sm font-medium text-white mb-2">
@@ -304,6 +405,20 @@ const PartnerProgramsPage = () => {
                 </div>
 
                 <div>
+                  <label htmlFor="partnerPhone" className="block text-sm font-medium text-white mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="partnerPhone"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="partnerType" className="block text-sm font-medium text-white mb-2">
                     Partnership Type *
                   </label>
@@ -311,6 +426,8 @@ const PartnerProgramsPage = () => {
                     id="partnerType"
                     name="partnerType"
                     required
+                    value={selectedPartnershipType}
+                    onChange={(e) => setSelectedPartnershipType(e.target.value)}
                     className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:ring-2 focus:ring-white focus:border-transparent transition-colors"
                   >
                     <option value="" className="text-gray-800">Select partnership type</option>
@@ -337,9 +454,11 @@ const PartnerProgramsPage = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    disabled={formStatus === 'loading'}
+                    className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 mx-auto"
                   >
-                    Apply for Partnership
+                    {formStatus === 'loading' && <Loader2 className="w-5 h-5 animate-spin" />}
+                    {formStatus === 'loading' ? 'Sending Application...' : 'Apply for Partnership'}
                   </button>
                 </div>
               </form>

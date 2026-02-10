@@ -1,13 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import mixpanel from 'mixpanel-browser';
+import emailjs from '@emailjs/browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Mail, MapPin, Building } from 'lucide-react';
+import { EMAILJS_CONFIG } from '../config/emailjs';
+import { Mail, MapPin, Building, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 const ContactPage = () => {
+  const [formStatus, setFormStatus] = useState(null); // null, 'loading', 'success', 'error'
+  const [formMessage, setFormMessage] = useState('');
+
   useEffect(() => {
     mixpanel.track('Contact Page Viewed');
+
+    // Handle scrolling to demo form when page loads with #demo-form hash
+    if (window.location.hash === '#demo-form') {
+      // Small delay to ensure the DOM is fully rendered
+      setTimeout(() => {
+        const demoFormElement = document.getElementById('demo-form');
+        if (demoFormElement) {
+          demoFormElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   }, []);
+
+  const handleDemoRequest = async (e) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    setFormMessage('');
+
+    try {
+      const templateParams = {
+        from_name: `${e.target.firstName.value} ${e.target.lastName.value}`,
+        from_email: e.target.email.value,
+        phone: e.target.phone.value,
+        organization: e.target.organization.value,
+        role: e.target.role.value,
+        demo_type: e.target.demoType.value,
+        message: e.target.message.value,
+        to_email: 'sales@budlee.ai'
+      };
+
+      await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.DEMO_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
+
+      setFormStatus('success');
+      setFormMessage('Thank you for your demo request! We\'ll be in touch within 24 hours to schedule your personalized demo.');
+      e.target.reset();
+
+      // Track successful demo request
+      mixpanel.track('Demo Request Submitted', {
+        role: templateParams.role,
+        demoType: templateParams.demo_type
+      });
+
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setFormStatus('error');
+      setFormMessage('There was an error sending your demo request. Please try again or contact us directly at sales@budlee.ai');
+
+      // Track demo request error
+      mixpanel.track('Demo Request Error', {
+        error: error.text || error.message
+      });
+    }
+  };
 
   const contactMethods = [
     {
@@ -116,7 +173,23 @@ const ContactPage = () => {
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              <form className="space-y-6">
+              {/* Status Message */}
+              {formStatus && (
+                <div className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${
+                  formStatus === 'success'
+                    ? 'bg-green-100 border border-green-300 text-green-800'
+                    : formStatus === 'error'
+                    ? 'bg-red-100 border border-red-300 text-red-800'
+                    : 'bg-blue-100 border border-blue-300 text-blue-800'
+                }`}>
+                  {formStatus === 'success' && <CheckCircle className="w-5 h-5 flex-shrink-0" />}
+                  {formStatus === 'error' && <AlertCircle className="w-5 h-5 flex-shrink-0" />}
+                  {formStatus === 'loading' && <Loader2 className="w-5 h-5 flex-shrink-0 animate-spin" />}
+                  <span>{formMessage}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleDemoRequest} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -157,6 +230,20 @@ const ContactPage = () => {
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
                     placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+                    placeholder="+1 (555) 123-4567"
                   />
                 </div>
 
@@ -225,9 +312,11 @@ const ContactPage = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    disabled={formStatus === 'loading'}
+                    className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 mx-auto"
                   >
-                    Request Demo
+                    {formStatus === 'loading' && <Loader2 className="w-5 h-5 animate-spin" />}
+                    {formStatus === 'loading' ? 'Sending Request...' : 'Request Demo'}
                   </button>
                 </div>
               </form>

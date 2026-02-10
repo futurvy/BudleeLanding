@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import mixpanel from 'mixpanel-browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SchoolDemoModal from '../components/SchoolDemoModal';
 import { Button } from '../components/ui/button';
 import { FlaskConical, GraduationCap, Users, School, ArrowRight, Calendar, Beaker, BarChart3, Rocket, Globe } from 'lucide-react';
 
 const SchoolsPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   useEffect(() => {
     mixpanel.track('Schools Page Viewed');
   }, []);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const benefits = [
     {
@@ -41,7 +36,7 @@ const SchoolsPage = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Header 
         ctaText="Request a School Demo" 
-        ctaOnClick={openModal}
+        ctaLink="/contact#demo-form"
       />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -99,13 +94,14 @@ const SchoolsPage = () => {
 
               {/* Prominent CTA Button - Below Cards */}
               <div className="flex justify-center mt-8 md:mt-10">
-                <Button 
-                  onClick={openModal}
-                  className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-5 md:px-10 md:py-6 text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 uppercase tracking-wide"
-                >
-                  Request a School Demo
-                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
-                </Button>
+                <Link to="/contact#demo-form">
+                  <Button 
+                    className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-5 md:px-10 md:py-6 text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 uppercase tracking-wide"
+                  >
+                    Request a School Demo
+                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -328,13 +324,10 @@ const SchoolsPage = () => {
       </main>
       <Footer 
         ctaText="Talk to Our School Team"
-        ctaOnClick={openModal}
+        ctaLink="/contact#demo-form"
         headline="Ready to see Budlee in your classrooms?"
         subtext="Get a guided demo tailored to your grades, subjects, and teaching approach."
       />
-      
-      {/* School Demo Modal */}
-      <SchoolDemoModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

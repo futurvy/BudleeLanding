@@ -99,9 +99,14 @@ const Header = ({
                 <Link to="/faqs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
                   FAQs
                 </Link>
-                <Link to="/contact#demo-form" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
-                  Request a Demo
-                </Link>
+                <div className="border-t border-gray-100 mt-2 pt-2">
+                  <Link to="/schools" className="block px-4 py-2 text-sm font-semibold text-green-600 hover:bg-green-50 hover:text-green-700 transition-colors" onClick={closeDropdown}>
+                    For Schools
+                  </Link>
+                  <Link to="/contact#demo-form" className="block px-4 py-2 text-sm font-semibold text-green-600 hover:bg-green-50 hover:text-green-700 transition-colors" onClick={closeDropdown}>
+                    Request a Demo
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -156,7 +161,7 @@ const Header = ({
             <a href="https://dash.budlee.ai">
               <Button 
                 variant="outline"
-                className="border-2 border-blue-500 bg-transparent text-blue-600 hover:bg-blue-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
+                className="border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
               >
                 School Login
               </Button>
@@ -247,9 +252,14 @@ const Header = ({
                           <Link to="/faqs" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
                             FAQs
                           </Link>
-                          <Link to="/book-demo" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
-                            Request a Demo
-                          </Link>
+                          <div className="border-t border-gray-200 mt-3 pt-3">
+                            <Link to="/schools" className="block py-2 text-sm font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={closeMobileMenu}>
+                              For Schools
+                            </Link>
+                            <Link to="/book-demo" className="block py-2 text-sm font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={closeMobileMenu}>
+                              Request a Demo
+                            </Link>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -301,7 +311,7 @@ const Header = ({
                     <a href="https://dash.budlee.ai">
                       <Button 
                         variant="outline"
-                        className="border-2 border-blue-500 bg-transparent text-blue-600 hover:bg-blue-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
+                        className="border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
                       >
                         School Login
                       </Button>
