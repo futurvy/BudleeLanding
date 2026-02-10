@@ -293,7 +293,7 @@ const SchoolsPage = () => {
                   {/* Logo Container */}
                   <div className="flex-shrink-0 w-28 h-28 md:w-32 md:h-32 bg-gray-50 rounded-2xl flex items-center justify-center p-4 border border-gray-100">
                     <img 
-                      src="/images/kedu.png" 
+                      src="/images/partners/kedu.png" 
                       alt="KEDU Logo" 
                       className="w-full h-full object-contain"
                     />

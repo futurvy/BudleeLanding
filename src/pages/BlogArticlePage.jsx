@@ -19,7 +19,7 @@ const BlogArticlePage = () => {
       date: "2024-02-15",
       category: "AI & Learning",
       readTime: "5 min read",
-      image: "/images/blog/ai-classroom.jpg",
+      image: "images/blog/ai-classroom.jpg",
       content: `
         <h2>The Dawn of AI-Powered Education</h2>
         <p>Artificial Intelligence is no longer a futuristic concept—it's actively transforming how we teach and learn in classrooms worldwide. From personalized learning paths to intelligent tutoring systems, AI is creating unprecedented opportunities for educational excellence.</p>
@@ -48,7 +48,7 @@ const BlogArticlePage = () => {
       date: "2024-02-12",
       category: "Education Technology",
       readTime: "7 min read",
-      image: "/images/blog/personalized-learning.jpg",
+      image: "images/blog/personalized-learning.jpg",
       content: `
         <h2>Understanding Personalized Education</h2>
         <p>Personalized education represents a fundamental shift from traditional classroom models to learning experiences tailored to individual student needs, preferences, and learning styles. This approach recognizes that every student has unique strengths, challenges, and pathways to success.</p>
@@ -86,7 +86,7 @@ const BlogArticlePage = () => {
       date: "2024-02-10",
       category: "Teaching Tips",
       readTime: "6 min read",
-      image: "/images/blog/digital-literacy.jpg",
+      image: "images/blog/digital-literacy.jpg",
       content: `
         <h2>The Importance of Digital Literacy</h2>
         <p>In today's digital age, digital literacy is no longer optional—it's essential. Students need more than just technical skills; they need the ability to navigate, evaluate, and create digital content effectively and responsibly.</p>
@@ -135,7 +135,7 @@ const BlogArticlePage = () => {
       date: "2024-02-08",
       category: "Student Success",
       readTime: "4 min read",
-      image: "/images/blog/gamification.jpg",
+      image: "images/blog/gamification.jpg",
       content: `
         <h2>The Power of Gamification in Education</h2>
         <p>Gamification is transforming education by making learning engaging, interactive, and enjoyable. By incorporating game design elements into educational content, educators can increase student motivation and improve learning outcomes.</p>
@@ -206,7 +206,7 @@ const BlogArticlePage = () => {
       date: "2024-02-05",
       category: "Innovation",
       readTime: "8 min read",
-      image: "/images/blog/ai-tutors.jpg",
+      image: "images/blog/ai-tutors.jpg",
       content: `
         <h2>The Evolution of AI Tutoring</h2>
         <p>AI tutors are revolutionizing personalized education by providing 24/7 access to intelligent tutoring systems that adapt to individual student needs. These sophisticated tools are changing how students learn and how educators teach.</p>
@@ -285,7 +285,7 @@ const BlogArticlePage = () => {
       date: "2024-02-03",
       category: "Teaching Tips",
       readTime: "6 min read",
-      image: "/images/blog/inclusive-learning.jpg",
+      image: "images/blog/inclusive-learning.jpg",
       content: `
         <h2>The Importance of Inclusive Education</h2>
         <p>Inclusive learning environments celebrate diversity and ensure that all students, regardless of background, abilities, or learning styles, have equitable access to high-quality education. Creating such environments requires intentional planning and commitment from educators and institutions.</p>
@@ -461,8 +461,16 @@ const BlogArticlePage = () => {
         <section className="w-full pb-16 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             {/* Featured Image */}
-            <div className="h-64 md:h-80 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl mb-8 flex items-center justify-center">
-              <BookOpen className="w-20 h-20 text-white opacity-50" />
+            <div className="w-full h-[300px] md:h-[450px] rounded-2xl mb-12 overflow-hidden shadow-xl bg-gray-100">
+              <img
+                src={`${process.env.PUBLIC_URL || ''}/${article.image}`}
+                alt={article.title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://placehold.co/1200x800/00A859/white?text=Budlee+AI';
+                }}
+              />
             </div>
 
             {/* Article Body */}

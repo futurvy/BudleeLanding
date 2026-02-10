@@ -32,7 +32,7 @@ const BlogPage = () => {
       date: "2024-02-15",
       category: "AI & Learning",
       readTime: "5 min read",
-      image: "/images/blog/ai-classroom.jpg",
+      image: "images/blog/ai-classroom.jpg",
       featured: true
     },
     {
@@ -44,7 +44,7 @@ const BlogPage = () => {
       date: "2024-02-12",
       category: "Education Technology",
       readTime: "7 min read",
-      image: "/images/blog/personalized-learning.jpg",
+      image: "images/blog/personalized-learning.jpg",
       featured: true
     },
     {
@@ -56,7 +56,7 @@ const BlogPage = () => {
       date: "2024-02-10",
       category: "Teaching Tips",
       readTime: "6 min read",
-      image: "/images/blog/digital-literacy.jpg",
+      image: "images/blog/digital-literacy.jpg",
       featured: false
     },
     {
@@ -68,7 +68,7 @@ const BlogPage = () => {
       date: "2024-02-08",
       category: "Student Success",
       readTime: "4 min read",
-      image: "/images/blog/gamification.jpg",
+      image: "images/blog/gamification.jpg",
       featured: false
     },
     {
@@ -80,7 +80,7 @@ const BlogPage = () => {
       date: "2024-02-05",
       category: "Innovation",
       readTime: "8 min read",
-      image: "/images/blog/ai-tutors.jpg",
+      image: "images/blog/ai-tutors.jpg",
       featured: false
     },
     {
@@ -92,7 +92,7 @@ const BlogPage = () => {
       date: "2024-02-03",
       category: "Teaching Tips",
       readTime: "6 min read",
-      image: "/images/blog/inclusive-learning.jpg",
+      image: "images/blog/inclusive-learning.jpg",
       featured: false
     }
   ];
@@ -100,8 +100,8 @@ const BlogPage = () => {
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.author.toLowerCase().includes(searchTerm.toLowerCase());
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.author.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -117,7 +117,7 @@ const BlogPage = () => {
         <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
-              Budlee AI <span className="gradient-text">Blog</span>
+              Budlee AI <span className="gradient-text">Blogs</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Insights, trends, and expert perspectives on AI-powered education, teaching innovation, and the future of learning.
@@ -147,11 +147,10 @@ const BlogPage = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
                       ? 'bg-green-500 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -167,11 +166,20 @@ const BlogPage = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Featured Articles</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {featuredPosts.map((post) => (
-                  <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-                    <div className="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
-                      <BookOpen className="w-16 h-16 text-white opacity-50" />
-                    </div>
-                    <div className="p-6">
+                  <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                    <Link to={`/blog/${post.slug}`} className="h-64 overflow-hidden bg-gray-100 relative group">
+                      <img
+                        src={`${process.env.PUBLIC_URL || ''}/${post.image}`}
+                        alt={post.title}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = 'https://placehold.co/600x400/00A859/white?text=Budlee+AI';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    </Link>
+                    <div className="p-6 flex-grow flex flex-col">
                       <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
@@ -189,10 +197,10 @@ const BlogPage = () => {
                       <h3 className="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
+                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-auto">
                         <span className="text-sm text-gray-500">{post.readTime}</span>
                         <Link to={`/blog/${post.slug}`} className="text-green-600 hover:text-green-700 font-medium transition-colors">
                           Read More →
@@ -214,11 +222,20 @@ const BlogPage = () => {
             {regularPosts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {regularPosts.map((post) => (
-                  <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-                    <div className="h-32 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                      <BookOpen className="w-12 h-12 text-white opacity-50" />
-                    </div>
-                    <div className="p-6">
+                  <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                    <Link to={`/blog/${post.slug}`} className="h-48 overflow-hidden bg-gray-100 relative group">
+                      <img
+                        src={`${process.env.PUBLIC_URL || ''}/${post.image}`}
+                        alt={post.title}
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = 'https://placehold.co/400x300/00A859/white?text=Budlee+AI';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    </Link>
+                    <div className="p-6 flex-grow flex flex-col">
                       <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
@@ -234,7 +251,7 @@ const BlogPage = () => {
                       <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
                         <span className="text-xs text-gray-500">{post.readTime}</span>
                         <Link to={`/blog/${post.slug}`} className="text-green-600 hover:text-green-700 font-medium transition-colors text-sm">
                           Read More

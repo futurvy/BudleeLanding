@@ -252,16 +252,28 @@ const Header = ({
                           <Link to="/faqs" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
                             FAQs
                           </Link>
-                          <div className="border-t border-gray-200 mt-3 pt-3">
-                            <Link to="/schools" className="block py-2 text-sm font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={closeMobileMenu}>
-                              For Schools
-                            </Link>
-                            <Link to="/book-demo" className="block py-2 text-sm font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={closeMobileMenu}>
-                              Request a Demo
-                            </Link>
-                          </div>
                         </div>
                       )}
+                    </div>
+
+                    {/* Direct High-Priority Links for Mobile */}
+                    <div className="pt-2 border-t border-gray-100">
+                      <Link to="/schools" className="flex items-center gap-2 py-3 text-base font-bold text-green-600 hover:text-green-700 transition-colors" onClick={closeMobileMenu}>
+                        <div className="p-2 bg-green-50 rounded-lg">
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        For Schools
+                      </Link>
+                      <Link to="/contact#demo-form" className="flex items-center gap-2 py-3 text-base font-bold text-emerald-600 hover:text-emerald-700 transition-colors" onClick={closeMobileMenu}>
+                        <div className="p-2 bg-emerald-50 rounded-lg">
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        Request a Demo
+                      </Link>
                     </div>
 
                     {/* About Us Dropdown */}

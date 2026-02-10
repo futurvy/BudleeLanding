@@ -13,7 +13,7 @@ const MeetOurTeamPage = () => {
     {
       name: "Saleej Kuruniyan",
       role: "Co-founder & CEO",
-      image: "/images/saleej.jpg",
+      image: "/images/founders/saleej.jpg",
       bio: "Saleej leads platform, product, and engineering at Budlee AI. A second-time founder with 15+ years of experience shipping production systems at scale for companies like Amazon, Intel, and Samsung.",
       linkedin: "https://www.linkedin.com/in/saleejkuruniyan/",
       achievements: [
@@ -26,7 +26,7 @@ const MeetOurTeamPage = () => {
     {
       name: "Abdul Rahim",
       role: "Co-founder & Head of AI",
-      image: "/images/abdul.jpg",
+      image: "/images/founders/abdul.jpg",
       bio: "Abdul leads AI, data, and intelligence at Budlee AI. With extensive experience in data architecture and AI solutions at companies like Accenture and Proofpoint.",
       linkedin: "https://www.linkedin.com/in/abdul-rahim-kamaludeen/",
       achievements: [
@@ -39,7 +39,7 @@ const MeetOurTeamPage = () => {
     {
       name: "Mohammed Irfan",
       role: "Co-founder & Head of Growth",
-      image: "/images/irfan.jpg",
+      image: "/images/founders/irfan.jpg",
       bio: "Irfan drives growth and partnerships at Budlee AI. Transitioned from telecom engineering to building education products, bringing hands-on experience with real users and market validation.",
       linkedin: "https://www.linkedin.com/in/mohammed--irfan/",
       achievements: [
@@ -51,7 +51,7 @@ const MeetOurTeamPage = () => {
     {
       name: "Suhail Mohammed",
       role: "Co-founder & Head of Product",
-      image: "/images/suhail.jpg",
+      image: "/images/founders/suhail.jpg",
       bio: "Suhail leads product flow and learning experience design at Budlee AI. Brings experience from building AI agents, procurement platforms, and EV charging startups.",
       linkedin: "https://www.linkedin.com/in/suhail-in/",
       achievements: [
