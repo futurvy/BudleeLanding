@@ -43,7 +43,8 @@ const SchoolsPage = () => {
         ctaText="Request a School Demo" 
         ctaOnClick={openModal}
         secondaryCtaText="School Login"
-        secondaryCtaLink="#"
+        secondaryCtaLink="https://dash.budlee.ai/"
+        secondaryCtaTarget="_self"
       />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -63,7 +64,7 @@ const SchoolsPage = () => {
                 
                 {/* Budlee Character - No speech bubble */}
                 <img 
-                  src="/images/budlee.png" 
+                  src="/images/logo.png" 
                   alt="Budlee" 
                   className="w-14 h-14 md:w-20 md:h-20 object-contain animate-bounce-gentle flex-shrink-0"
                 />

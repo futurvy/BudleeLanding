@@ -97,7 +97,7 @@ const CuriositySection = () => {
                   <div className="relative">
                     {/* Budlee with observing animation - increased size */}
                     <img 
-                      src="/images/budlee.png" 
+                      src="/images/logo.png" 
                       alt="Budlee" 
                       className="w-20 h-20 md:w-24 md:h-24 object-contain animate-nod cursor-pointer hover:scale-110 transition-transform duration-300"
                     />

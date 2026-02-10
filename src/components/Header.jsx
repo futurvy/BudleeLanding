@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 
 const Header = ({ 
-  ctaText = "Explore Budlee", 
+  ctaText = "Explore Budlee AI", 
   ctaLink = "https://app.budlee.ai/",
   ctaOnClick = null,
   secondaryCtaText = null,
-  secondaryCtaLink = null
+  secondaryCtaLink = null,
+  secondaryCtaTarget = "_blank",
+  ctaTarget = "_self"
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,21 +36,24 @@ const Header = ({
     }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo - Clickable, links to home */}
-        <Link to="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
-          {/* Budlee Character Logo */}
+        <Link to="/" className="flex flex-col items-center hover:opacity-80 transition-opacity">
+          {/* Wide Logo */}
           <img 
-            src="/images/budlee.png" 
-            alt="Budlee" 
-            className="w-10 h-10 md:w-16 md:h-16 object-contain"
+            src="/images/logo_wide.png" 
+            alt="Budlee AI" 
+            className="h-8 md:h-12 object-contain"
           />
-          <span className="logo-text text-xl md:text-3xl text-gray-900">Budlee AI</span>
+          {/* Slogan */}
+          <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
+            Learn Better. Build Curiosity
+          </span>
         </Link>
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-3">
           {/* Secondary Button (if provided) */}
           {secondaryCtaText && (
-            <a href={secondaryCtaLink} target="_blank" rel="noopener noreferrer">
+            <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
               <Button 
                 variant="outline"
                 className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
@@ -67,7 +72,7 @@ const Header = ({
               {ctaText}
             </Button>
           ) : (
-            <a href={ctaLink} target="_blank" rel="noopener noreferrer">
+            <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
               <Button 
                 className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               >

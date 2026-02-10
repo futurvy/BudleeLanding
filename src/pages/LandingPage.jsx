@@ -15,7 +15,11 @@ const LandingPage = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header />
+      <Header 
+        secondaryCtaText="School Login"
+        secondaryCtaLink="https://dash.budlee.ai/"
+        secondaryCtaTarget="_self"
+      />
       <main className="flex-grow">
         <HeroSection />
         <AfterSchoolSection />

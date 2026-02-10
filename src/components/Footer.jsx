@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Linkedin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
 
@@ -10,7 +11,7 @@ const ThreadsIcon = ({ className }) => (
 );
 
 const Footer = ({ 
-  ctaText = "Explore Budlee",
+  ctaText = "Explore Budlee AI",
   ctaLink = "https://app.budlee.ai/",
   ctaOnClick = null,
   headline = "Start learning in a way that actually makes sense.",
@@ -25,7 +26,7 @@ const Footer = ({
             {/* Budlee Character - increased size, no yellow circle */}
             <div className="relative">
               <img 
-                src="/images/budlee.png" 
+                src="/images/logo.png" 
                 alt="Budlee" 
                 className="w-20 h-20 md:w-28 md:h-28 object-contain animate-bounce-gentle"
               />
@@ -47,7 +48,7 @@ const Footer = ({
                   {ctaText}
                 </Button>
               ) : (
-                <a href={ctaLink} target="_blank" rel="noopener noreferrer">
+                <a href={ctaLink} rel="noopener noreferrer">
                   <Button 
                     className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-6 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
@@ -67,26 +68,23 @@ const Footer = ({
             
             {/* Left - Logo with Tagline */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-2">
-                <img 
-                  src="/images/budlee.png" 
-                  alt="Budlee" 
-                  className="w-8 h-8 object-contain"
-                />
-                <span className="logo-text text-xl text-gray-800">Budlee AI</span>
-              </div>
-              <p className="text-gray-500 text-sm mt-1">Learn Better. Build Curiosity</p>
+              <img 
+                src="/images/logo_wide.png" 
+                alt="Budlee AI" 
+                className="h-8 object-contain mb-2"
+              />
+              <p className="text-gray-500 text-sm">Learn Better. Build Curiosity</p>
             </div>
 
             {/* Center - Social Icons */}
             <div className="flex items-center gap-6">
-              <a href="https://www.linkedin.com/company/budlee-ai/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
+              <a href="https://www.linkedin.com/company/budlee-ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
               <a href="https://www.facebook.com/BudleeAI" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/budlee.ai?igsh=MWpjbjhycGgyNnJoZg==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
+              <a href="https://www.instagram.com/budlee.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="https://youtube.com/@budleeai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
@@ -103,21 +101,27 @@ const Footer = ({
             {/* Right - Copyright + Contact/Terms/Privacy */}
             <div className="flex flex-col items-center md:items-end gap-1">
               <p className="text-gray-400 text-sm">
-                © 2025 Budlee AI. All rights reserved.
+                © 2026 Budlee AI. All rights reserved.
               </p>
               <div className="flex items-center gap-3">
-                <a href="#" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
+                <Link to="/contact" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
                   Contact
-                </a>
+                </Link>
                 <span className="text-gray-300">|</span>
-                <a href="#" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Terms
-                </a>
+                <Link to="/terms" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
+                  Terms of Use
+                </Link>
                 <span className="text-gray-300">|</span>
-                <a href="#" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Privacy
-                </a>
-              </div>
+                <Link to="/privacy" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
+                  Privacy Policy
+                </Link>
+                <span className="text-gray-300">|</span>
+                <Link to="/refund" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
+                  Refunds
+                </Link>                <span className="text-gray-300">|</span>
+                <Link to="/cookies" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
+                  Cookies Policy
+                </Link>              </div>
             </div>
 
           </div>

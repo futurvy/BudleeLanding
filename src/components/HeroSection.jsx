@@ -110,7 +110,7 @@ const HeroSection = () => {
                 </div>
                 {/* Budlee Character - Smaller on mobile */}
                 <img 
-                  src="/images/budlee.png" 
+                  src="/images/logo.png" 
                   alt="Budlee" 
                   className="w-14 h-14 md:w-20 md:h-20 object-contain animate-bounce-gentle cursor-pointer hover:scale-110 transition-transform"
                 />
@@ -135,7 +135,7 @@ const HeroSection = () => {
 
               {/* CTA Buttons - Centered */}
               <div className="flex flex-col items-center gap-3 md:gap-4 w-full max-w-sm px-4 md:px-0">
-                <a href="https://app.budlee.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
+                <a href="https://app.budlee.ai/" rel="noopener noreferrer" className="w-full">
                   <Button 
                     className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-5 md:px-8 md:py-7 text-sm md:text-base rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-2"
                   >
