@@ -118,6 +118,7 @@ const AfterSchoolSection = () => {
                       src="/images/logo.png" 
                       alt="Budlee" 
                       className="w-20 h-20 md:w-24 md:h-24 object-contain animate-peek-a-boo cursor-pointer hover:scale-110 transition-transform duration-300"
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>

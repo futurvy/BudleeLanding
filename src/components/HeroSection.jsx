@@ -113,6 +113,7 @@ const HeroSection = () => {
                   src="/images/logo.png" 
                   alt="Budlee" 
                   className="w-14 h-14 md:w-20 md:h-20 object-contain animate-bounce-gentle cursor-pointer hover:scale-110 transition-transform"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
               </div>
             </div>

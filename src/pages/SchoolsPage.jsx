@@ -42,9 +42,6 @@ const SchoolsPage = () => {
       <Header 
         ctaText="Request a School Demo" 
         ctaOnClick={openModal}
-        secondaryCtaText="School Login"
-        secondaryCtaLink="https://dash.budlee.ai/"
-        secondaryCtaTarget="_self"
       />
       <main className="flex-grow">
         {/* Hero Section */}

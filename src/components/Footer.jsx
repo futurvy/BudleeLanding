@@ -17,49 +17,53 @@ const Footer = ({
   headline = "Start learning in a way that actually makes sense.",
   subtext = "Learn with clarity, ask freely, and explore what interests you."
 }) => {
+  const showTopSection = headline && subtext && ctaText;
   return (
     <footer className="w-full">
       {/* Top Section - CTA with Green Gradient */}
-      <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 py-12 md:py-16 px-4 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
-            {/* Budlee Character - increased size, no yellow circle */}
-            <div className="relative">
-              <img 
-                src="/images/logo.png" 
-                alt="Budlee" 
-                className="w-20 h-20 md:w-28 md:h-28 object-contain animate-bounce-gentle"
-              />
-            </div>
-            
-            {/* CTA Content */}
-            <div className="text-center md:text-left">
-              <h3 className="text-white text-2xl md:text-3xl font-bold mb-2">
-                {headline}
-              </h3>
-              <p className="text-green-100 text-base md:text-lg mb-4">
-                {subtext}
-              </p>
-              {ctaOnClick ? (
-                <Button 
-                  onClick={ctaOnClick}
-                  className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-6 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  {ctaText}
-                </Button>
-              ) : (
-                <a href={ctaLink} rel="noopener noreferrer">
+      {showTopSection && (
+        <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 py-12 md:py-16 px-4 md:px-12 lg:px-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+              {/* Budlee Character - increased size, no yellow circle */}
+              <div className="relative">
+                <img 
+                  src="/images/logo.png" 
+                  alt="Budlee" 
+                  className="w-20 h-20 md:w-28 md:h-28 object-contain animate-bounce-gentle"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              </div>
+              
+              {/* CTA Content */}
+              <div className="text-center md:text-left">
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-2">
+                  {headline}
+                </h3>
+                <p className="text-green-100 text-base md:text-lg mb-4">
+                  {subtext}
+                </p>
+                {ctaOnClick ? (
                   <Button 
+                    onClick={ctaOnClick}
                     className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-6 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     {ctaText}
                   </Button>
-                </a>
-              )}
+                ) : (
+                  <a href={ctaLink} rel="noopener noreferrer">
+                    <Button 
+                      className="bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-6 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      {ctaText}
+                    </Button>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Bottom Section - 3 Column Layout */}
       <div className="bg-white py-6 px-4 md:px-12 lg:px-20 border-t border-gray-100">
@@ -72,6 +76,7 @@ const Footer = ({
                 src="/images/logo_wide.png" 
                 alt="Budlee AI" 
                 className="h-8 object-contain mb-2"
+                onContextMenu={(e) => e.preventDefault()}
               />
               <p className="text-gray-500 text-sm">Learn Better. Build Curiosity</p>
             </div>

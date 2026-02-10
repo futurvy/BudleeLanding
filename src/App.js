@@ -8,6 +8,20 @@ import PrivacyPage from "./pages/PrivacyPage";
 import RefundPage from "./pages/RefundPage";
 import CookiePage from "./pages/CookiePage";
 import ContactPage from "./pages/ContactPage";
+import OurStoryPage from "./pages/OurStoryPage";
+import MeetOurTeamPage from "./pages/MeetOurTeamPage";
+import MissionVisionPage from "./pages/MissionVisionPage";
+import CoreValuesPage from "./pages/CoreValuesPage";
+import CareersPage from "./pages/CareersPage";
+import PartnerProgramsPage from "./pages/PartnerProgramsPage";
+import BlogPage from "./pages/BlogPage";
+import TutorialsPage from "./pages/TutorialsPage";
+import DocumentationPage from "./pages/DocumentationPage";
+import FaqsPage from "./pages/FaqsPage";
+import HelpCenterPage from "./pages/HelpCenterPage";
+import PricingPage from "./pages/PricingPage";
+import BlogArticlePage from "./pages/BlogArticlePage";
+import HelpArticlePage from "./pages/HelpArticlePage";
 
 // Scroll to top component
 function ScrollToTop() {
@@ -33,14 +47,22 @@ function App() {
           <Route path="/refund" element={<RefundPage />} />
           <Route path="/cookies" element={<CookiePage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<LandingPage />} />
-          <Route path="/tutorials" element={<LandingPage />} />
-          <Route path="/documentation" element={<LandingPage />} />
-          <Route path="/help" element={<ContactPage />} />
-          <Route path="/our-story" element={<LandingPage />} />
-          <Route path="/team" element={<LandingPage />} />
-          <Route path="/careers" element={<LandingPage />} />
-          <Route path="/pricing" element={<LandingPage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/team" element={<MeetOurTeamPage />} />
+          <Route path="/mission-vision" element={<MissionVisionPage />} />
+          <Route path="/core-values" element={<CoreValuesPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/partner-programs" element={<PartnerProgramsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogArticlePage />} />
+          <Route path="/tutorials" element={<TutorialsPage />} />
+          <Route path="/documentation" element={<DocumentationPage />} />
+          <Route path="/help" element={<HelpCenterPage />} />
+          <Route path="/help/:slug" element={<HelpArticlePage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/faqs" element={<FaqsPage />} />
+          <Route path="/book-demo" element={<LandingPage />} />
+          <Route path="/partner-programs" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </div>

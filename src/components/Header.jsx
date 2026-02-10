@@ -63,6 +63,7 @@ const Header = ({
             src="/images/logo_wide.png" 
             alt="Budlee AI" 
             className="h-8 md:h-12 object-contain"
+            onContextMenu={(e) => e.preventDefault()}
           />
           {/* Slogan */}
           <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
@@ -98,8 +99,8 @@ const Header = ({
                 <Link to="/faqs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
                   FAQs
                 </Link>
-                <Link to="/book-demo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
-                  Book a Demo
+                <Link to="/contact#demo-form" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
+                  Request a Demo
                 </Link>
               </div>
             )}
@@ -151,6 +152,16 @@ const Header = ({
         <div className="flex items-center gap-3">
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
+            {/* School Login Button */}
+            <a href="https://dash.budlee.ai">
+              <Button 
+                variant="outline"
+                className="border-2 border-blue-500 bg-transparent text-blue-600 hover:bg-blue-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
+              >
+                School Login
+              </Button>
+            </a>
+            
             {/* Secondary Button (if provided) */}
             {secondaryCtaText && (
               <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
@@ -237,7 +248,7 @@ const Header = ({
                             FAQs
                           </Link>
                           <Link to="/book-demo" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
-                            Book a Demo
+                            Request a Demo
                           </Link>
                         </div>
                       )}
@@ -287,6 +298,15 @@ const Header = ({
 
                   {/* Mobile CTA Buttons */}
                   <div className="pt-4 border-t border-gray-200 flex flex-row justify-center gap-3">
+                    <a href="https://dash.budlee.ai">
+                      <Button 
+                        variant="outline"
+                        className="border-2 border-blue-500 bg-transparent text-blue-600 hover:bg-blue-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
+                      >
+                        School Login
+                      </Button>
+                    </a>
+                    
                     {secondaryCtaText && (
                       <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
                         <Button 
