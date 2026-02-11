@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import mixpanel from 'mixpanel-browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Calendar, User, Tag, Search, BookOpen, TrendingUp, Users, Lightbulb } from 'lucide-react';
+import { Calendar, User, Tag, Search, BookOpen, TrendingUp, Users, Lightbulb, Atom, Star, Sparkles, FlaskConical } from 'lucide-react';
 
 const BlogPage = () => {
   useEffect(() => {
@@ -114,8 +114,61 @@ const BlogPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20 relative overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50"></div>
+          
+          {/* Floating Doodles - Hidden on mobile, visible on md+ */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
+            {/* Top Left - Atom */}
+            <div className="absolute top-8 left-[8%] text-green-300 animate-float-slow">
+              <Atom className="w-10 h-10 opacity-60" />
+            </div>
+            
+            {/* Top Right - Flask */}
+            <div className="absolute top-12 right-[12%] text-yellow-400 animate-float-medium">
+              <FlaskConical className="w-8 h-8 opacity-50" />
+            </div>
+            
+            {/* Middle Left - Lightbulb */}
+            <div className="absolute top-1/3 left-[4%] text-orange-300 animate-float-fast">
+              <Lightbulb className="w-7 h-7 opacity-50" />
+            </div>
+            
+            {/* Bottom Right - Stars */}
+            <div className="absolute bottom-28 right-[6%] text-green-400 animate-float-slow">
+              <Star className="w-8 h-8 opacity-40 fill-current" />
+            </div>
+            
+            {/* Top Center - Sparkles */}
+            <div className="absolute top-6 left-[35%] text-yellow-400 animate-float-medium">
+              <Sparkles className="w-6 h-6 opacity-50" />
+            </div>
+            
+            {/* Bottom Left - Star */}
+            <div className="absolute bottom-24 left-[10%] text-orange-400 animate-float-fast">
+              <Star className="w-5 h-5 opacity-40 fill-current" />
+            </div>
+
+            {/* Decorative circles */}
+            <div className="absolute top-20 right-[22%] w-16 h-16 rounded-full bg-green-200 opacity-20 animate-pulse-slow"></div>
+            <div className="absolute bottom-40 left-[18%] w-12 h-12 rounded-full bg-yellow-200 opacity-20 animate-pulse-slow"></div>
+          </div>
+
+          {/* Mobile Floating Doodles - Smaller, fewer */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden md:hidden">
+            <div className="absolute top-4 right-[8%] text-green-300 animate-float-slow">
+              <Atom className="w-6 h-6 opacity-40" />
+            </div>
+            <div className="absolute top-20 left-[5%] text-yellow-400 animate-float-medium">
+              <Star className="w-5 h-5 opacity-40 fill-current" />
+            </div>
+            <div className="absolute bottom-32 right-[10%] text-orange-300 animate-float-fast">
+              <Sparkles className="w-5 h-5 opacity-40" />
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Budlee AI <span className="gradient-text">Blogs</span>
             </h1>
