@@ -189,7 +189,7 @@ const SchoolsPage = () => {
               <h2 className="hero-tagline text-2xl sm:text-3xl md:text-4xl mb-4">
                 How <span className="gradient-text">Schools</span> Get Started
               </h2>
-              <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+              <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto font-medium">
                 Budlee is introduced through a simple, low-pressure pilot approach.
               </p>
             </div>
@@ -320,7 +320,7 @@ const SchoolsPage = () => {
                   Middle East <span className="gradient-text">Presence</span>
                 </h2>
               </div>
-              <p className="text-gray-600 text-base md:text-lg">
+              <p className="text-gray-700 text-lg md:text-xl font-medium">
                 Budlee AI is live in the Middle East.
               </p>
             </div>

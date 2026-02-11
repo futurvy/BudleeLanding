@@ -197,7 +197,7 @@ const HelpCenterPage = () => {
         {/* Help Categories */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Browse by Category</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text text-center">Browse by Category</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {helpCategories.map((category, index) => (
@@ -233,7 +233,7 @@ const HelpCenterPage = () => {
         {/* Popular Articles */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Popular Articles</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text text-center">Popular Articles</h2>
 
             {filteredArticles.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-4">

@@ -204,7 +204,7 @@ const PricingPage = () => {
         {/* How to Subscribe */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">How to Subscribe</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text text-center">How to Subscribe</h2>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
@@ -237,7 +237,7 @@ const PricingPage = () => {
         {/* Notes */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Important Notes</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text text-center">Important Notes</h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
@@ -272,7 +272,7 @@ const PricingPage = () => {
         {/* FAQs */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text text-center">Frequently Asked Questions</h2>
 
             <div className="space-y-6">
               {faqs.map((faq, index) => (
@@ -291,7 +291,7 @@ const PricingPage = () => {
         {/* Contact Information */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Budlee AI Support Team</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap text-white">Budlee AI Support Team</h2>
             <p className="text-green-100 text-lg mb-8">
               Need help with pricing or have questions? We're here to help!
             </p>

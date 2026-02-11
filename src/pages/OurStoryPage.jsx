@@ -73,7 +73,7 @@ const OurStoryPage = () => {
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Our <span className="gradient-text">Story</span>
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed font-medium">
               How four passionate founders came together to revolutionize learning through AI
             </p>
           </div>
@@ -84,7 +84,7 @@ const OurStoryPage = () => {
           <div className="max-w-4xl mx-auto">
             {/* The Beginning */}
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">The Beginning</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">The Beginning</h2>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
                 <p className="mb-4">
                   Budlee AI was born from a shared frustration with traditional education. Our founders, who have known each other for several years through startup events and founder communities in Chennai and Bangalore, recognized a fundamental problem: students were memorizing information without truly understanding concepts, and there was no structured way to explore interests during school years.
@@ -97,7 +97,7 @@ const OurStoryPage = () => {
 
             {/* The Problem */}
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">The Problem We Saw</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">The Problem We Saw</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-gray-50 p-6 rounded-xl">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Students Memorizing, Not Understanding</h3>
@@ -116,7 +116,7 @@ const OurStoryPage = () => {
 
             {/* Our Solution */}
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Our Solution</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Our Solution</h2>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
                 <p className="mb-4">
                   We started working on Budlee AI in mid-2025, initially as a part-time project while validating our learning flow with real students. Our approach is unique: we connect everyday school learning with guided exploration, creating a single connected journey where understanding concepts, practicing, testing, and exploring interests are tightly linked.
@@ -132,7 +132,7 @@ const OurStoryPage = () => {
 
             {/* Our Progress */}
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Where We Are Today</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Where We Are Today</h2>
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-xl">
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                   <div>
@@ -156,8 +156,8 @@ const OurStoryPage = () => {
 
             {/* Call to Action */}
             <div className="text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Join Our Mission</h2>
-              <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Join Our Mission</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium mb-8 max-w-2xl mx-auto">
                 We're just getting started. Help us build the learning companion that every student deserves.
               </p>
               <a

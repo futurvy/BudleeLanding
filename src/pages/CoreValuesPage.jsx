@@ -188,8 +188,8 @@ const CoreValuesPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Our Values Matter</h2>
-              <p className="text-gray-600 text-lg">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Why Our Values Matter</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium">
                 In education technology, values aren't just nice-to-have—they're essential for building trust and creating real impact
               </p>
             </div>
@@ -222,8 +222,8 @@ const CoreValuesPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">How We Live Our Values</h2>
-              <p className="text-gray-600 text-lg">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">How We Live Our Values</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium">
                 Our values guide our daily work and long-term decisions
               </p>
             </div>

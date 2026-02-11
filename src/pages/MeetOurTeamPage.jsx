@@ -108,7 +108,7 @@ const MeetOurTeamPage = () => {
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Meet Our <span className="gradient-text">Team</span>
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed font-medium">
               Four passionate founders bringing together expertise in AI, engineering, product, and education to revolutionize learning
             </p>
           </div>
@@ -201,10 +201,10 @@ const MeetOurTeamPage = () => {
         {/* Team Culture Section */}
         <section className="w-full bg-gray-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">
               Our Culture & Values
             </h2>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl font-medium mb-8 leading-relaxed">
               We believe in learning through doing, embracing challenges, and building technology that makes a real difference in education.
             </p>
 
@@ -234,7 +234,7 @@ const MeetOurTeamPage = () => {
         {/* Join Us CTA */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap text-white">
               Want to Join Our Team?
             </h2>
             <p className="text-green-100 text-lg mb-8">

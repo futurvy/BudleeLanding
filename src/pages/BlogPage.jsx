@@ -216,7 +216,7 @@ const BlogPage = () => {
         {featuredPosts.length > 0 && (
           <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Featured Articles</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Featured Articles</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {featuredPosts.map((post) => (
                   <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
@@ -250,7 +250,7 @@ const BlogPage = () => {
                       <h3 className="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                      <p className="text-lg text-gray-700 leading-relaxed line-clamp-3 mb-4">
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between mt-auto">
@@ -270,7 +270,7 @@ const BlogPage = () => {
         {/* Regular Posts */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Latest Articles</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Latest Articles</h2>
 
             {regularPosts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -301,7 +301,7 @@ const BlogPage = () => {
                       <h3 className="text-lg font-bold text-gray-800 mb-3 hover:text-green-600 transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
+                      <p className="text-gray-600 text-base mb-4 leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
@@ -317,8 +317,8 @@ const BlogPage = () => {
             ) : (
               <div className="text-center py-12">
                 <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-600 mb-2">No articles found</h3>
-                <p className="text-gray-500">Try adjusting your search or category filter.</p>
+                <h3 className="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
+                <p className="text-gray-600">Try adjusting your search or category filter.</p>
               </div>
             )}
           </div>
@@ -327,8 +327,8 @@ const BlogPage = () => {
         {/* Newsletter Signup */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Stay Updated</h2>
-            <p className="text-green-100 text-lg mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Stay Updated</h2>
+            <p className="text-green-100 text-xl mb-8 font-medium">
               Get the latest insights on AI-powered education delivered to your inbox
             </p>
 

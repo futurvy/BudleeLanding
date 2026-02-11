@@ -235,7 +235,7 @@ const FaqsPage = () => {
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed">
               Find answers to common questions about Budlee AI. If you don't find what you're looking for, contact us at support@budlee.ai.
             </p>
 
@@ -265,7 +265,7 @@ const FaqsPage = () => {
                   <div className={`w-12 h-12 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
                     <category.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+                  <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] whitespace-nowrap gradient-text">
                     {category.title}
                   </h2>
                 </div>
@@ -316,8 +316,8 @@ const FaqsPage = () => {
         {/* Contact Section */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Still Need Help?</h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Still Need Help?</h2>
+            <p className="text-gray-700 text-lg font-medium mb-8 max-w-2xl mx-auto">
               If these FAQs don't help, reach out to our support team. We're here to assist you!
             </p>
 

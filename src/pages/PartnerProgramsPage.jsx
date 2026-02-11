@@ -239,7 +239,7 @@ const PartnerProgramsPage = () => {
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Partner <span className="gradient-text">Programs</span>
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed">
               Join our partner ecosystem and earn commissions while helping schools transform education with Budlee AI
             </p>
           </div>
@@ -249,8 +249,8 @@ const PartnerProgramsPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-2 md:mb-5">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Choose Your Partnership</h2>
-              <p className="text-gray-600 text-lg">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Choose Your Partnership</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium">
                 Multiple ways to partner with Budlee AI and grow your income
               </p>
             </div>
@@ -301,8 +301,8 @@ const PartnerProgramsPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-2 md:mb-5">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Partner With Budlee AI?</h2>
-              <p className="text-gray-600 text-lg">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Why Partner With Budlee AI?</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium">
                 Join a growing ecosystem of education innovators
               </p>
             </div>
@@ -346,7 +346,7 @@ const PartnerProgramsPage = () => {
         {/* Partnership Application Form */}
         <section id="referral-form" className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Start Earning Today</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap text-white">Start Earning Today</h2>
             <p className="text-green-100 text-lg mb-8">
               Join other partners who are already earning with Budlee AI
             </p>

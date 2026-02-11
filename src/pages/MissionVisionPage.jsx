@@ -73,7 +73,7 @@ const MissionVisionPage = () => {
             <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Our <span className="gradient-text">Mission</span> & Vision
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-700 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed font-medium">
               Building the future of education through AI-powered learning that connects understanding with curiosity
             </p>
           </div>
@@ -86,7 +86,7 @@ const MissionVisionPage = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 rounded-full mb-6">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Our Mission</h2>
             </div>
 
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 md:p-12 rounded-2xl">
@@ -128,7 +128,7 @@ const MissionVisionPage = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 rounded-full mb-6">
                 <Eye className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Vision</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Our Vision</h2>
             </div>
 
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
@@ -189,8 +189,8 @@ const MissionVisionPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">How We Achieve Our Mission</h2>
-              <p className="text-gray-600 text-lg">
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">How We Achieve Our Mission</h2>
+              <p className="text-gray-700 text-xl md:text-2xl font-medium">
                 Budlee AI bridges the gap between school learning and interest-driven growth
               </p>
             </div>
@@ -232,7 +232,7 @@ const MissionVisionPage = () => {
         {/* Our Impact Goals */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Impact Goals</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap text-white">Our Impact Goals</h2>
             <p className="text-green-100 text-lg mb-8">
               We're starting with CBSE curriculum and grades 6-10, but our vision extends globally
             </p>
@@ -261,8 +261,8 @@ const MissionVisionPage = () => {
         {/* Call to Action */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Join Our Mission</h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Join Our Mission</h2>
+            <p className="text-gray-700 text-xl md:text-2xl font-medium mb-8 max-w-2xl mx-auto">
               Help us build the learning companion that empowers every student to reach their full potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

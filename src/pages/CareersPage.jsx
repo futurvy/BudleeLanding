@@ -164,7 +164,7 @@ const CareersPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Join Budlee AI?</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Why Join Budlee AI?</h2>
               <p className="text-gray-600 text-lg">
                 We're not just building a product—we're solving real problems in education
               </p>
@@ -188,7 +188,7 @@ const CareersPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Open Positions</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Open Positions</h2>
               <p className="text-gray-600 text-lg">
                 We're growing our team and looking for talented individuals to join our mission
               </p>
@@ -256,7 +256,7 @@ const CareersPage = () => {
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Culture</h2>
+              <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Our Culture</h2>
               <p className="text-gray-600 text-lg">
                 We believe in learning through doing, embracing challenges, and building technology that makes a real difference
               </p>
@@ -342,7 +342,7 @@ const CareersPage = () => {
         {/* Contact */}
         <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Questions About Joining Us?</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text">Questions About Joining Us?</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               We're always happy to chat about opportunities at Budlee AI. Reach out to us with any questions.
             </p>
