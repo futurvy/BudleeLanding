@@ -75,6 +75,7 @@ const MeetOurTeamPage = () => {
                         src={member.image}
                         alt={member.name}
                         className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0 border-4 border-white shadow-lg"
+                        onContextMenu={(e) => e.preventDefault()}
                         onError={(e) => {
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
