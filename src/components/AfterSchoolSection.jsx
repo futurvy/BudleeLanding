@@ -2,7 +2,7 @@ import React from 'react';
 
 const AfterSchoolSection = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-4 md:px-12 lg:px-20">
+    <section className="w-full bg-white py-16 md:py-5 px-4 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           

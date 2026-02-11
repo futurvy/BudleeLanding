@@ -14,9 +14,9 @@ const OurStoryPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Our <span className="gradient-text">Story</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -26,10 +26,10 @@ const OurStoryPage = () => {
         </section>
 
         {/* Story Content */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             {/* The Beginning */}
-            <div className="mb-16">
+            <div className="mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">The Beginning</h2>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
                 <p className="mb-4">
@@ -42,7 +42,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* The Problem */}
-            <div className="mb-16">
+            <div className="mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">The Problem We Saw</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-gray-50 p-6 rounded-xl">
@@ -61,7 +61,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Our Solution */}
-            <div className="mb-16">
+            <div className="mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Our Solution</h2>
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
                 <p className="mb-4">
@@ -77,7 +77,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Our Progress */}
-            <div className="mb-16">
+            <div className="mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Where We Are Today</h2>
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-xl">
                 <div className="grid md:grid-cols-3 gap-6 text-center">

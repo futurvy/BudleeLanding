@@ -84,9 +84,9 @@ const CoreValuesPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Our <span className="gradient-text">Core Values</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -96,7 +96,7 @@ const CoreValuesPage = () => {
         </section>
 
         {/* Values Grid */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {coreValues.map((value, index) => (
@@ -132,7 +132,7 @@ const CoreValuesPage = () => {
         </section>
 
         {/* Why Values Matter */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Our Values Matter</h2>
@@ -166,7 +166,7 @@ const CoreValuesPage = () => {
         </section>
 
         {/* How We Live Our Values */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">How We Live Our Values</h2>
@@ -201,7 +201,7 @@ const CoreValuesPage = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Experience Our Values in Action</h2>
             <p className="text-green-100 text-lg mb-8">
@@ -210,8 +210,6 @@ const CoreValuesPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://app.budlee.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-block bg-white text-green-600 hover:bg-green-50 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Try Budlee AI

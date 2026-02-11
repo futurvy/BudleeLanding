@@ -96,7 +96,7 @@ const PartnerProgramsPage = () => {
       description: "Earn commissions by referring schools, educators, and institutions to Budlee AI.",
       color: "from-blue-400 to-indigo-500",
       benefits: [
-        "Up to 15% commission on referrals",
+        "Industry best commission",
         "Monthly payouts",
         "Real-time tracking dashboard",
         "Dedicated partner support"
@@ -185,9 +185,9 @@ const PartnerProgramsPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Partner <span className="gradient-text">Programs</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -197,9 +197,9 @@ const PartnerProgramsPage = () => {
         </section>
 
         {/* Programs Grid */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-2 md:mb-5">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Choose Your Partnership</h2>
               <p className="text-gray-600 text-lg">
                 Multiple ways to partner with Budlee AI and grow your income
@@ -248,51 +248,10 @@ const PartnerProgramsPage = () => {
           </div>
         </section>
 
-        {/* Success Stories */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Partner Success Stories</h2>
-              <p className="text-gray-600 text-lg">
-                Real partners, real results
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {successStories.map((story, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100">
-                  {/* Avatar */}
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white font-bold text-lg">{story.avatar}</span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800">{story.name}</h4>
-                      <p className="text-gray-600 text-sm">{story.role}</p>
-                    </div>
-                  </div>
-
-                  {/* Earnings */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-1">
-                      <DollarSign className="w-5 h-5 text-green-500" />
-                      <span className="text-2xl font-bold text-green-600">{story.earnings}</span>
-                    </div>
-                    <p className="text-gray-600 text-sm">{story.period}</p>
-                  </div>
-
-                  {/* Testimonial */}
-                  <p className="text-gray-600 text-sm italic">"{story.testimonial}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Why Partner With Us */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-2 md:mb-5">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Partner With Budlee AI?</h2>
               <p className="text-gray-600 text-lg">
                 Join a growing ecosystem of education innovators
@@ -336,11 +295,11 @@ const PartnerProgramsPage = () => {
         </section>
 
         {/* Partnership Application Form */}
-        <section id="referral-form" className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section id="referral-form" className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Start Earning Today</h2>
             <p className="text-green-100 text-lg mb-8">
-              Join thousands of partners who are already earning with Budlee AI
+              Join other partners who are already earning with Budlee AI
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">

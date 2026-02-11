@@ -116,9 +116,9 @@ const HelpCenterPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Help <span className="gradient-text">Center</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -142,7 +142,7 @@ const HelpCenterPage = () => {
         </section>
 
         {/* Help Categories */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Browse by Category</h2>
 
@@ -178,7 +178,7 @@ const HelpCenterPage = () => {
         </section>
 
         {/* Popular Articles */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Popular Articles</h2>
 
@@ -212,7 +212,7 @@ const HelpCenterPage = () => {
         </section>
 
         {/* Contact Support */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Contact Support</h2>
@@ -246,7 +246,7 @@ const HelpCenterPage = () => {
         </section>
 
         {/* Office Information */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Visit Our Office</h2>
             <p className="text-green-100 text-lg mb-8">

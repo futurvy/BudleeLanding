@@ -15,9 +15,9 @@ const MissionVisionPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Our <span className="gradient-text">Mission</span> & Vision
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -27,7 +27,7 @@ const MissionVisionPage = () => {
         </section>
 
         {/* Mission Section */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 rounded-full mb-6">
@@ -69,7 +69,7 @@ const MissionVisionPage = () => {
         </section>
 
         {/* Vision Section */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 rounded-full mb-6">
@@ -133,7 +133,7 @@ const MissionVisionPage = () => {
         </section>
 
         {/* How We Achieve Our Mission */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">How We Achieve Our Mission</h2>
@@ -177,7 +177,7 @@ const MissionVisionPage = () => {
         </section>
 
         {/* Our Impact Goals */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Impact Goals</h2>
             <p className="text-green-100 text-lg mb-8">
@@ -190,7 +190,7 @@ const MissionVisionPage = () => {
                 <div className="text-green-100">Launch Year</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                <div className="text-3xl font-bold text-white mb-2">10K+</div>
+                <div className="text-3xl font-bold text-white mb-2">1K+</div>
                 <div className="text-green-100">Students</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
@@ -206,7 +206,7 @@ const MissionVisionPage = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Join Our Mission</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

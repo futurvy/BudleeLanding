@@ -26,7 +26,7 @@ const CuriositySection = () => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-br from-green-50/50 via-white to-yellow-50/30 py-16 md:py-24 px-4 md:px-12 lg:px-20">
+    <section className="w-full bg-gradient-to-br from-green-50/50 via-white to-yellow-50/30 py-16 md:py-5 px-4 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           

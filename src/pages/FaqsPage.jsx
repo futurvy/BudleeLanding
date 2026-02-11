@@ -28,7 +28,7 @@ const FaqsPage = () => {
         },
         {
           question: "Who can use Budlee AI?",
-          answer: "Anyone 18+ in India. School users access via school plans."
+          answer: "Users below 18 years need parental supervision. School users access via school plans."
         }
       ]
     },
@@ -177,9 +177,9 @@ const FaqsPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -203,7 +203,7 @@ const FaqsPage = () => {
         </section>
 
         {/* FAQ Categories */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             {filteredCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-8">
@@ -261,7 +261,7 @@ const FaqsPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Still Need Help?</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

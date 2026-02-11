@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import mixpanel from 'mixpanel-browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -65,6 +66,10 @@ const PricingPage = () => {
     {
       question: "Is there a trial?",
       answer: "The free plan serves as a trial."
+    },
+    {
+      question: "Age Policy",
+      answer: "Users below 18 years need to be supervised by their parents while using Budlee AI."
     }
   ];
 
@@ -74,31 +79,19 @@ const PricingPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Budlee AI <span className="gradient-text">Pricing</span> Plans
             </h1>
-            <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              At Budlee AI, we offer flexible pricing to suit your needs. Whether you're exploring AI for learning or going all-in, our plans provide access to chat, community, quests, curiosity centre, and more. Choose from free limited access or unlimited subscriptions.
-            </p>
-            <p className="text-gray-500 text-sm mt-4">
+            <p className="text-gray-500 text-sm mt-0">
               Prices are in USD for global users and INR for India.
             </p>
           </div>
         </section>
 
-        {/* Pricing Notice */}
-        <section className="w-full py-8 px-4 md:px-12 lg:px-20 bg-yellow-50">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-gray-700 text-sm md:text-base">
-              Below are plans for individual schools. For subscribers for partnered School, contact your school admins to activate your account.
-            </p>
-          </div>
-        </section>
-
         {/* Pricing Cards */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {pricingPlans.map((plan, index) => (
@@ -143,7 +136,7 @@ const PricingPage = () => {
                       className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${plan.buttonStyle}`}
                       onClick={() => {
                         mixpanel.track('Pricing Plan Selected', { planName: plan.name });
-                        window.location.href = 'https://dash.budlee.ai';
+                        window.location.href = 'https://app.budlee.ai';
                       }}
                     >
                       {plan.buttonText}
@@ -156,7 +149,7 @@ const PricingPage = () => {
         </section>
 
         {/* How to Subscribe */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">How to Subscribe</h2>
 
@@ -189,7 +182,7 @@ const PricingPage = () => {
         </section>
 
         {/* Notes */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Important Notes</h2>
 
@@ -214,7 +207,7 @@ const PricingPage = () => {
                   <div>
                     <h3 className="font-bold text-gray-800 mb-2">Need Help?</h3>
                     <p className="text-gray-600 text-sm">
-                      For more details, visit our FAQs or contact our support team.
+                      For more details, visit our <Link to="/faqs" className="text-green-600 hover:text-green-700 font-medium transition-colors">FAQs</Link> or contact our support team.
                     </p>
                   </div>
                 </div>
@@ -224,7 +217,7 @@ const PricingPage = () => {
         </section>
 
         {/* FAQs */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
 
@@ -243,7 +236,7 @@ const PricingPage = () => {
         </section>
 
         {/* Contact Information */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Budlee AI Support Team</h2>
             <p className="text-green-100 text-lg mb-8">

@@ -16,7 +16,7 @@ const MeetOurTeamPage = () => {
       image: "/images/founders/saleej.jpg",
       bio: "Saleej spearheads our technology vision, bringing over 15 years of experience in building scalable systems at industry leaders like Amazon, Intel, and Samsung. As a seasoned founder, he ensures our platform delivers reliable, high-performance solutions that scale with our growing user base.",
       linkedin: "https://www.linkedin.com/in/saleejkuruniyan/",
-      experience: "CTO of Needoo AI Innovations, Senior DevOps Engineer at Wakeb Data Communications"
+      experience: "CTO of Needoo AI Innovations, Senior Software Engineer at Wakeb Data Communications, Ex-Software Engineer at Amazon, Intel and Samsung"
     },
     {
       name: "Abdul Rahim",
@@ -50,9 +50,9 @@ const MeetOurTeamPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Meet Our <span className="gradient-text">Team</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -62,7 +62,7 @@ const MeetOurTeamPage = () => {
         </section>
 
         {/* Team Grid */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               {teamMembers.map((member, index) => (
@@ -145,7 +145,7 @@ const MeetOurTeamPage = () => {
         </section>
 
         {/* Team Culture Section */}
-        <section className="w-full bg-gray-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gray-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Our Culture & Values
@@ -178,7 +178,7 @@ const MeetOurTeamPage = () => {
         </section>
 
         {/* Join Us CTA */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Want to Join Our Team?

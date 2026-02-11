@@ -28,8 +28,8 @@ const BlogPage = () => {
       title: "How AI is Revolutionizing Classroom Learning",
       slug: "how-ai-is-revolutionizing-classroom-learning",
       excerpt: "Discover how artificial intelligence is transforming traditional education methods and creating personalized learning experiences for every student.",
-      author: "Dr. Sarah Chen",
-      date: "2024-02-15",
+      author: "Saleej Kuruniyan",
+      date: "2025-02-15",
       category: "AI & Learning",
       readTime: "5 min read",
       image: "images/blog/ai-classroom.jpg",
@@ -40,8 +40,8 @@ const BlogPage = () => {
       title: "The Future of Personalized Education",
       slug: "the-future-of-personalized-education",
       excerpt: "Explore how adaptive learning platforms are creating customized educational journeys that cater to individual student needs and learning styles.",
-      author: "Prof. Michael Rodriguez",
-      date: "2024-02-12",
+      author: "Suhail Mohammed",
+      date: "2025-02-12",
       category: "Education Technology",
       readTime: "7 min read",
       image: "images/blog/personalized-learning.jpg",
@@ -52,8 +52,8 @@ const BlogPage = () => {
       title: "Building Digital Literacy Skills for Tomorrow",
       slug: "building-digital-literacy-skills-for-tomorrow",
       excerpt: "Essential digital literacy skills that every student needs to succeed in the modern world, and how educators can integrate them into their curriculum.",
-      author: "Emma Thompson",
-      date: "2024-02-10",
+      author: "Mohammed Irfan",
+      date: "2025-02-10",
       category: "Teaching Tips",
       readTime: "6 min read",
       image: "images/blog/digital-literacy.jpg",
@@ -64,8 +64,8 @@ const BlogPage = () => {
       title: "Gamification: Making Learning Fun and Effective",
       slug: "gamification-making-learning-fun-and-effective",
       excerpt: "How game-based learning techniques can increase student engagement and improve knowledge retention across all age groups.",
-      author: "Dr. James Park",
-      date: "2024-02-08",
+      author: "Suhail Mohammed",
+      date: "2025-02-08",
       category: "Student Success",
       readTime: "4 min read",
       image: "images/blog/gamification.jpg",
@@ -76,8 +76,8 @@ const BlogPage = () => {
       title: "The Rise of AI Tutors in Education",
       slug: "the-rise-of-ai-tutors-in-education",
       excerpt: "Examining the impact of AI-powered tutoring systems on student outcomes and the future of one-on-one learning support.",
-      author: "Lisa Wang",
-      date: "2024-02-05",
+      author: "Abdul Rahim",
+      date: "2025-02-05",
       category: "Innovation",
       readTime: "8 min read",
       image: "images/blog/ai-tutors.jpg",
@@ -88,8 +88,8 @@ const BlogPage = () => {
       title: "Creating Inclusive Learning Environments",
       slug: "creating-inclusive-learning-environments",
       excerpt: "Strategies for educators to create welcoming classrooms that support diverse learning needs and foster equity in education.",
-      author: "Dr. Maria Gonzalez",
-      date: "2024-02-03",
+      author: "Saleej Kuruniyan",
+      date: "2025-02-03",
       category: "Teaching Tips",
       readTime: "6 min read",
       image: "images/blog/inclusive-learning.jpg",
@@ -114,9 +114,9 @@ const BlogPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               Budlee AI <span className="gradient-text">Blogs</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -161,7 +161,7 @@ const BlogPage = () => {
 
         {/* Featured Posts */}
         {featuredPosts.length > 0 && (
-          <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+          <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Featured Articles</h2>
               <div className="grid md:grid-cols-2 gap-8">
@@ -215,7 +215,7 @@ const BlogPage = () => {
         )}
 
         {/* Regular Posts */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Latest Articles</h2>
 
@@ -272,7 +272,7 @@ const BlogPage = () => {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Stay Updated</h2>
             <p className="text-green-100 text-lg mb-8">

@@ -40,13 +40,8 @@ const SchoolsPage = () => {
       />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full min-h-[calc(100vh-70px)] md:min-h-[calc(100vh-88px)] flex flex-col relative overflow-hidden">
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50"></div>
-          
-          {/* Main Content */}
-          <div className="flex-grow flex items-center justify-center px-4 md:px-12 lg:px-20 py-6 md:py-8 relative z-10">
-            <div className="max-w-6xl mx-auto w-full">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
+          <div className="max-w-6xl mx-auto w-full">
 
               {/* Headline with Budlee */}
               <div className="flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-5">
@@ -104,41 +99,40 @@ const SchoolsPage = () => {
                 </Link>
               </div>
             </div>
-          </div>
+        </section>
 
-          {/* CBSE Curriculum Section - Informational Only */}
-          <div className="w-full bg-white/80 backdrop-blur-sm py-4 md:py-5 px-4 md:px-12 lg:px-20 border-t border-gray-100 relative z-10">
-            <div className="max-w-6xl mx-auto flex justify-center">
-              <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-                {/* Curriculum Text */}
-                <span className="text-gray-500 font-medium text-sm md:text-base">
-                  Currently supporting <span className="gradient-text font-bold">CBSE</span>
-                </span>
-                
-                <span className="text-gray-300">·</span>
-                
-                {/* Science with Icon */}
-                <div className="flex items-center gap-1.5">
-                  <FlaskConical className="w-4 h-4 text-green-500" />
-                  <span className="text-gray-600 font-medium text-sm md:text-base">Science</span>
-                </div>
-                
-                <span className="text-gray-300">·</span>
-                
-                {/* Grades Pill */}
-                <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 text-white font-bold text-xs md:text-sm px-3 py-1 rounded-full">
-                  Grades 6–10
-                </span>
+        {/* CBSE Curriculum Section - Informational Only */}
+        <section className="w-full bg-white/80 backdrop-blur-sm py-4 md:py-5 px-4 md:px-12 lg:px-20 border-t border-gray-100 relative z-10">
+          <div className="max-w-6xl mx-auto flex justify-center">
+            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+              {/* Curriculum Text */}
+              <span className="text-gray-500 font-medium text-sm md:text-base">
+                Currently supporting <span className="gradient-text font-bold">CBSE</span>
+              </span>
+              
+              <span className="text-gray-300">·</span>
+              
+              {/* Science with Icon */}
+              <div className="flex items-center gap-1.5">
+                <FlaskConical className="w-4 h-4 text-green-500" />
+                <span className="text-gray-600 font-medium text-sm md:text-base">Science</span>
               </div>
+              
+              <span className="text-gray-300">·</span>
+              
+              {/* Grades Pill */}
+              <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 text-white font-bold text-xs md:text-sm px-3 py-1 rounded-full">
+                Grades 6–10
+              </span>
             </div>
           </div>
         </section>
 
         {/* Section 2 - How Schools Get Started */}
-        <section className="w-full bg-gray-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gray-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-center mb-2 md:mb-16">
               <h2 className="hero-tagline text-2xl sm:text-3xl md:text-4xl mb-4">
                 How <span className="gradient-text">Schools</span> Get Started
               </h2>
@@ -263,7 +257,7 @@ const SchoolsPage = () => {
         </section>
 
         {/* Section 3 - Middle East Presence */}
-        <section className="w-full bg-gradient-to-br from-green-50/50 via-white to-emerald-50/30 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50/50 via-white to-emerald-50/30 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-10 md:mb-14">

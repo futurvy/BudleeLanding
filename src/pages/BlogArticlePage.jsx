@@ -15,8 +15,8 @@ const BlogArticlePage = () => {
   const articles = {
     "how-ai-is-revolutionizing-classroom-learning": {
       title: "How AI is Revolutionizing Classroom Learning",
-      author: "Dr. Sarah Chen",
-      date: "2024-02-15",
+      author: "Saleej Kuruniyan",
+      date: "2025-02-15",
       category: "AI & Learning",
       readTime: "5 min read",
       image: "images/blog/ai-classroom.jpg",
@@ -44,8 +44,8 @@ const BlogArticlePage = () => {
     },
     "the-future-of-personalized-education": {
       title: "The Future of Personalized Education",
-      author: "Prof. Michael Rodriguez",
-      date: "2024-02-12",
+      author: "Suhail Mohammed",
+      date: "2025-02-12",
       category: "Education Technology",
       readTime: "7 min read",
       image: "images/blog/personalized-learning.jpg",
@@ -82,8 +82,8 @@ const BlogArticlePage = () => {
     },
     "building-digital-literacy-skills-for-tomorrow": {
       title: "Building Digital Literacy Skills for Tomorrow",
-      author: "Emma Thompson",
-      date: "2024-02-10",
+      author: "Mohammed Irfan",
+      date: "2025-02-10",
       category: "Teaching Tips",
       readTime: "6 min read",
       image: "images/blog/digital-literacy.jpg",
@@ -131,8 +131,8 @@ const BlogArticlePage = () => {
     },
     "gamification-making-learning-fun-and-effective": {
       title: "Gamification: Making Learning Fun and Effective",
-      author: "Dr. James Park",
-      date: "2024-02-08",
+      author: "Suhail Mohammed",
+      date: "2025-02-08",
       category: "Student Success",
       readTime: "4 min read",
       image: "images/blog/gamification.jpg",
@@ -202,8 +202,8 @@ const BlogArticlePage = () => {
     },
     "the-rise-of-ai-tutors-in-education": {
       title: "The Rise of AI Tutors in Education",
-      author: "Lisa Wang",
-      date: "2024-02-05",
+      author: "Abdul Rahim",
+      date: "2025-02-05",
       category: "Innovation",
       readTime: "8 min read",
       image: "images/blog/ai-tutors.jpg",
@@ -281,8 +281,8 @@ const BlogArticlePage = () => {
     },
     "creating-inclusive-learning-environments": {
       title: "Creating Inclusive Learning Environments",
-      author: "Dr. Maria Gonzalez",
-      date: "2024-02-03",
+      author: "Saleej Kuruniyan",
+      date: "2025-02-03",
       category: "Teaching Tips",
       readTime: "6 min read",
       image: "images/blog/inclusive-learning.jpg",

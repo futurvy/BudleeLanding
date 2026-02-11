@@ -201,9 +201,9 @@ const TutorialsPage = () => {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-6">
+            <h1 className="hero-tagline text-3xl sm:text-4xl md:text-5xl mb-0">
               <span className="gradient-text">Tutorials</span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -213,10 +213,10 @@ const TutorialsPage = () => {
         </section>
 
         {/* Tutorial Sections */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
             {tutorialSections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="mb-16">
+              <div key={sectionIndex} className="mb-10">
                 {/* Section Header */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className={`w-12 h-12 bg-gradient-to-br ${section.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -258,7 +258,7 @@ const TutorialsPage = () => {
         </section>
 
         {/* Quick Tips */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20 bg-gray-50">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Quick Tips & Tricks</h2>
@@ -282,7 +282,7 @@ const TutorialsPage = () => {
         </section>
 
         {/* Help Section */}
-        <section className="w-full py-16 md:py-20 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Need More Help?</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
