@@ -62,7 +62,7 @@ const Header = ({
           <img 
             src="/images/logo_wide.png" 
             alt="Budlee AI" 
-            className="h-8 md:h-12 object-contain"
+            className="h-6 md:h-9 object-contain"
             onContextMenu={(e) => e.preventDefault()}
           />
           {/* Slogan */}
@@ -92,9 +92,6 @@ const Header = ({
                 </Link>
                 <Link to="/tutorials" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
                   Tutorials
-                </Link>
-                <Link to="/documentation" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
-                  Documentation
                 </Link>
                 <Link to="/faqs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors" onClick={closeDropdown}>
                   FAQs
@@ -242,9 +239,6 @@ const Header = ({
                           </Link>
                           <Link to="/tutorials" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
                             Tutorials
-                          </Link>
-                          <Link to="/documentation" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
-                            Documentation
                           </Link>
                           <Link to="/help" className="block py-2 text-sm text-gray-600 hover:text-green-600 transition-colors" onClick={closeMobileMenu}>
                             Help Center

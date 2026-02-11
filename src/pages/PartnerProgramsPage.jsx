@@ -98,7 +98,6 @@ const PartnerProgramsPage = () => {
       benefits: [
         "Industry best commission",
         "Monthly payouts",
-        "Real-time tracking dashboard",
         "Dedicated partner support"
       ],
       cta: "Join Referral Program",
@@ -112,7 +111,6 @@ const PartnerProgramsPage = () => {
       color: "from-green-400 to-emerald-500",
       benefits: [
         "Custom affiliate links",
-        "Detailed analytics and reporting",
         "Marketing materials provided",
         "Flexible commission structure"
       ],
@@ -127,7 +125,6 @@ const PartnerProgramsPage = () => {
       color: "from-purple-400 to-violet-500",
       benefits: [
         "Wholesale pricing",
-        "Partner portal access",
         "Co-marketing opportunities",
         "Priority technical support"
       ],
@@ -141,7 +138,6 @@ const PartnerProgramsPage = () => {
       description: "Integrate Budlee AI into your existing educational platforms and tools.",
       color: "from-orange-400 to-red-500",
       benefits: [
-        "API access and documentation",
         "Joint development opportunities",
         "Revenue sharing model",
         "Technical integration support"

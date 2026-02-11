@@ -1515,7 +1515,7 @@ const HelpArticlePage = () => {
         </section>
 
         {/* Article Header */}
-        <section className="w-full py-8 md:py-12 px-4 md:px-12 lg:px-20">
+        <section className="w-full py-16 md:py-5 px-4 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className={`w-10 h-10 bg-gradient-to-br ${article.categoryColor || 'from-gray-400 to-gray-500'} rounded-lg flex items-center justify-center`}>

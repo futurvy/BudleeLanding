@@ -286,19 +286,13 @@ const TutorialsPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Need More Help?</h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Check out our comprehensive documentation or reach out to our support team.
+              Check out our FAQs or reach out to our support team.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/documentation"
-                className="inline-block bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-lg transition-all duration-300"
-              >
-                View Documentation
-              </a>
-              <a
                 href="/faqs"
-                className="inline-block border-2 border-green-500 text-green-600 hover:bg-green-50 font-bold px-8 py-4 rounded-xl transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-lg transition-all duration-300"
               >
                 Browse FAQs
               </a>

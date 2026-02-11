@@ -82,10 +82,12 @@ const Footer = ({
               <img 
                 src="/images/logo_wide.png" 
                 alt="Budlee AI" 
-                className="h-8 object-contain mb-2"
+                className="h-6 md:h-9 object-contain"
                 onContextMenu={(e) => e.preventDefault()}
               />
-              <p className="text-gray-500 text-sm">Learn Better. Build Curiosity</p>
+              <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
+            Learn Better. Build Curiosity
+          </span>
             </div>
 
             {/* Center - Social Icons */}

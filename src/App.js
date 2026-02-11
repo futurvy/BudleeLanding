@@ -16,7 +16,6 @@ import CareersPage from "./pages/CareersPage";
 import PartnerProgramsPage from "./pages/PartnerProgramsPage";
 import BlogPage from "./pages/BlogPage";
 import TutorialsPage from "./pages/TutorialsPage";
-import DocumentationPage from "./pages/DocumentationPage";
 import FaqsPage from "./pages/FaqsPage";
 import HelpCenterPage from "./pages/HelpCenterPage";
 import PricingPage from "./pages/PricingPage";
@@ -63,7 +62,6 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/tutorials" element={<TutorialsPage />} />
-          <Route path="/documentation" element={<DocumentationPage />} />
           <Route path="/help" element={<HelpCenterPage />} />
           <Route path="/help/:slug" element={<HelpArticlePage />} />
           <Route path="/pricing" element={<PricingPage />} />

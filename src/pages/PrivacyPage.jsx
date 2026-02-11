@@ -11,9 +11,9 @@ const PrivacyPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow py-12 md:py-16 px-4 md:px-12 lg:px-20">
+      <main className="flex-grow py-16 md:py-5 px-4 md:px-12 lg:px-20">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Privacy Policy
             </h1>
