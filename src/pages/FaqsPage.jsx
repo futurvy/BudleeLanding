@@ -131,7 +131,7 @@ const FaqsPage = () => {
         },
         {
           question: "How do I report a bug?",
-          answer: "Email us at support@budlee.ai with details."
+          answer: "Email us at help@budlee.ai with details."
         }
       ]
     },
@@ -236,7 +236,7 @@ const FaqsPage = () => {
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
             <p className="text-gray-700 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed">
-              Find answers to common questions about Budlee AI. If you don't find what you're looking for, contact us at support@budlee.ai.
+              Find answers to common questions about Budlee AI. If you don't find what you're looking for, contact us at help@budlee.ai.
             </p>
 
             {/* Search Bar */}
@@ -326,10 +326,10 @@ const FaqsPage = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Email Support</h3>
                 <p className="text-gray-600 mb-4">Get in touch with our support team</p>
                 <a
-                  href="mailto:support@budlee.ai"
+                  href="mailto:help@budlee.ai"
                   className="inline-block bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  support@budlee.ai
+                  help@budlee.ai
                 </a>
               </div>
 

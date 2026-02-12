@@ -65,7 +65,7 @@ const RefundPage = () => {
             <div className="mb-6">
               <p className="mb-2">For questions about refunds or cancellations:</p>
               <p className="font-semibold">Budlee AI Support Team</p>
-              <p><a href="mailto:support@budlee.ai" className="text-green-600 hover:text-green-700 underline">support@budlee.ai</a></p>
+              <p><a href="mailto:help@budlee.ai" className="text-green-600 hover:text-green-700 underline">help@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
                 LEAP Startup Incubation Centre,<br />

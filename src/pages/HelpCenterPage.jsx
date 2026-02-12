@@ -78,7 +78,7 @@ const HelpCenterPage = () => {
       icon: Mail,
       title: "Email Support",
       description: "Send us an email and we'll respond within 24 hours",
-      contact: "support@budlee.ai",
+      contact: "help@budlee.ai",
       availability: "Mon-Fri, 9 AM - 6 PM IST"
     },
     {

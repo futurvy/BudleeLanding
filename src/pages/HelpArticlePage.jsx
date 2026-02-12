@@ -46,7 +46,7 @@ const HelpArticlePage = () => {
         </ul>
 
         <h2>Need Help?</h2>
-        <p>If you encounter any issues during account creation, contact our support team at <strong>support@budlee.ai</strong> or visit our Help Center.</p>
+        <p>If you encounter any issues during account creation, contact our support team at <strong>help@budlee.ai</strong> or visit our Help Center.</p>
       `
     },
     "setting-up-your-profile": {
@@ -316,7 +316,7 @@ const HelpArticlePage = () => {
         <ul>
           <li>Use the "Report" button on problematic content</li>
           <li>Contact moderators through the help system</li>
-          <li>Reach out to support@budlee.ai for assistance</li>
+          <li>Reach out to help@budlee.ai for assistance</li>
         </ul>
       `
     },
@@ -959,7 +959,7 @@ const HelpArticlePage = () => {
           <li>Collect error messages and screenshots</li>
           <li>Note when the problem occurs</li>
           <li>Include your device and browser information</li>
-          <li>Contact support@budlee.ai with details</li>
+          <li>Contact help@budlee.ai with details</li>
         </ul>
       `
     },

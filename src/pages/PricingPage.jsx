@@ -302,7 +302,7 @@ const PricingPage = () => {
                   <Mail className="w-5 h-5" />
                   <span className="font-medium">Email Support</span>
                 </div>
-                <p className="text-green-100">support@budlee.ai</p>
+                <p className="text-green-100">help@budlee.ai</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
