@@ -29,7 +29,7 @@ const PricingPage = () => {
     },
     {
       name: "Monthly Plan",
-      price: { usd: "$20", inr: "₹1,990" },
+      price: { usd: "$10", inr: "₹990" },
       period: "per month",
       description: "Best For: Short-term, intensive use.",
       features: [
@@ -43,10 +43,10 @@ const PricingPage = () => {
     },
     {
       name: "Yearly Plan",
-      price: { usd: "$200", inr: "₹19,990" },
+      price: { usd: "$100", inr: "₹9,990" },
       period: "per year",
       description: "Best For: Long-term learners and power users.",
-      savings: "Save $40 (2 months free!)",
+      savings: "Save $20 (2 months free!)",
       features: [
         "Unlimited usage across all platform features for 1 year",
         "All monthly benefits plus discounts",

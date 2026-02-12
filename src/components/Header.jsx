@@ -62,7 +62,7 @@ const Header = ({
           <img 
             src="/images/logo_wide.png" 
             alt="Budlee AI" 
-            className="h-6 md:h-9 object-contain"
+            className="w-40 md:w-48 h-auto object-contain"
             onContextMenu={(e) => e.preventDefault()}
           />
           {/* Slogan */}

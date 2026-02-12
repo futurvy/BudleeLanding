@@ -82,7 +82,7 @@ const Footer = ({
               <img 
                 src="/images/logo_wide.png" 
                 alt="Budlee AI" 
-                className="h-6 md:h-9 object-contain"
+                className="w-40 md:w-48 h-auto object-contain"
                 onContextMenu={(e) => e.preventDefault()}
               />
               <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
@@ -122,23 +122,30 @@ const Footer = ({
               </p>
               <div className="flex items-center gap-3">
                 <Link to="/contact" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Contact Us
+                  <span className="md:hidden">Contact</span>
+                  <span className="hidden md:inline">Contact Us</span>
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link to="/terms" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Terms of Use
+                  <span className="md:hidden">Terms</span>
+                  <span className="hidden md:inline">Terms of Use</span>
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link to="/privacy" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Privacy Policy
+                  <span className="md:hidden">Privacy</span>
+                  <span className="hidden md:inline">Privacy Policy</span>
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link to="/refund" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Refund Policy
-                </Link>                <span className="text-gray-300">|</span>
+                  <span className="md:hidden">Refund</span>
+                  <span className="hidden md:inline">Refund Policy</span>
+                </Link>
+                <span className="text-gray-300">|</span>
                 <Link to="/cookies" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">
-                  Cookies Policy
-                </Link>              </div>
+                  <span className="md:hidden">Cookies</span>
+                  <span className="hidden md:inline">Cookies Policy</span>
+                </Link>
+              </div>
             </div>
 
           </div>
