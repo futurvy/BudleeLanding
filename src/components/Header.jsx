@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { ChevronDown, Menu, X } from 'lucide-react';
@@ -15,6 +15,8 @@ const Header = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const resourcesRef = useRef(null);
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,29 @@ const Header = ({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle clicks outside dropdowns to close them (only on wide screens)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (window.innerWidth >= 768) { // md breakpoint
+        if (resourcesRef.current && !resourcesRef.current.contains(event.target)) {
+          if (activeDropdown === 'resources') {
+            setActiveDropdown(null);
+          }
+        }
+        if (aboutRef.current && !aboutRef.current.contains(event.target)) {
+          if (activeDropdown === 'about') {
+            setActiveDropdown(null);
+          }
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeDropdown]);
 
   const handlePrimaryClick = (e) => {
     if (ctaOnClick) {
@@ -74,7 +99,7 @@ const Header = ({
         {/* Navigation Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           {/* Resources Dropdown */}
-          <div className="relative">
+          <div className="relative" ref={resourcesRef}>
             <button
               onClick={() => toggleDropdown('resources')}
               className="flex items-center text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
@@ -109,7 +134,7 @@ const Header = ({
           </div>
 
           {/* About Us Dropdown */}
-          <div className="relative">
+          <div className="relative" ref={aboutRef}>
             <button
               onClick={() => toggleDropdown('about')}
               className="flex items-center text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
