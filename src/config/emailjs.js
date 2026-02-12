@@ -28,4 +28,4 @@ export const EMAILJS_CONFIG = {
 // - {{message}}: Additional information/message
 //
 // Both forms:
-// - {{to_email}}: sales@budlee.ai (recipient email)
+// - {{to_email}}: hello@budlee.ai (recipient email)

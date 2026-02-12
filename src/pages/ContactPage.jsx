@@ -39,7 +39,7 @@ const ContactPage = () => {
         role: e.target.role.value,
         demo_type: e.target.demoType.value,
         message: e.target.message.value,
-        to_email: 'sales@budlee.ai'
+        to_email: 'hello@budlee.ai'
       };
 
       await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.DEMO_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
@@ -57,7 +57,7 @@ const ContactPage = () => {
     } catch (error) {
       console.error('EmailJS error:', error);
       setFormStatus('error');
-      setFormMessage('There was an error sending your demo request. Please try again or contact us directly at sales@budlee.ai');
+      setFormMessage('There was an error sending your demo request. Please try again or contact us directly at hello@budlee.ai');
 
       // Track demo request error
       mixpanel.track('Demo Request Error', {

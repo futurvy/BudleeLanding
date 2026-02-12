@@ -15,7 +15,7 @@ EmailJS Setup Instructions:
    - {{from_email}} - Applicant's email
    - {{partner_type}} - Selected partnership type
    - {{message}} - Applicant's message
-   - {{to_email}} - Should be set to sales@budlee.ai
+   - {{to_email}} - Should be set to hello@budlee.ai
 4. Replace the serviceId, templateId, and publicKey in handleFormSubmit with your actual IDs
 */
 
@@ -63,7 +63,7 @@ const PartnerProgramsPage = () => {
         phone: e.target.phone.value,
         partner_type: e.target.partnerType.value,
         message: e.target.message.value,
-        to_email: 'sales@budlee.ai'
+        to_email: 'hello@budlee.ai'
       };
 
       await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.PARTNER_TEMPLATE_ID, templateParams, EMAILJS_CONFIG.PUBLIC_KEY);
@@ -80,7 +80,7 @@ const PartnerProgramsPage = () => {
     } catch (error) {
       console.error('EmailJS error:', error);
       setFormStatus('error');
-      setFormMessage('There was an error sending your application. Please try again or contact us directly at sales@budlee.ai');
+      setFormMessage('There was an error sending your application. Please try again or contact us directly at hello@budlee.ai');
 
       // Track form submission error
       mixpanel.track('Partner Application Error', {
