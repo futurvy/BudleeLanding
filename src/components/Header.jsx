@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Sparkles } from 'lucide-react';
+import axios from 'axios';
 
 const Header = ({ 
   ctaText = "Explore Budlee AI", 
@@ -12,11 +13,56 @@ const Header = ({
   secondaryCtaTarget = "_blank",
   ctaTarget = "_self"
 }) => {
+  const openPromo = () => {
+    window.dispatchEvent(new CustomEvent('open-promo-modal'));
+  };
+
+  const PromoTrigger = ({ className }) => (
+    <button 
+      onClick={openPromo}
+      className={`group relative flex items-center h-8 w-8 hover:w-36 rounded-full bg-white border border-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-emerald-200 transition-all duration-500 overflow-hidden ${className}`}
+    >
+      {/* Rotating Border Effect */}
+      <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-emerald-100 transition-colors duration-500"></div>
+      <div className="absolute inset-[-2px] rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 opacity-0 group-hover:opacity-0 animate-spin transition-opacity duration-300" style={{ animationDuration: '3s' }}></div>
+      
+      <div className="relative flex items-center gap-2 px-2 min-w-max z-10">
+        <div className="relative flex-shrink-0">
+          <Sparkles className="w-4 h-4 text-emerald-500 animate-[bounce_2s_infinite]" />
+          <span className="absolute -top-1 -right-1 flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+        </div>
+        <span className="text-xs font-bold text-emerald-600 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+          Happening now
+        </span>
+      </div>
+
+      {/* Outer Pulse Glow */}
+      <div className="absolute inset-0 rounded-full animate-pulse bg-emerald-400/10 pointer-events-none"></div>
+    </button>
+  );
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasPromos, setHasPromos] = useState(false);
   const resourcesRef = useRef(null);
   const aboutRef = useRef(null);
+
+  useEffect(() => {
+    const handlePromosUpdated = (event) => {
+      setHasPromos(event.detail.count > 0);
+    };
+
+    window.addEventListener('promos-updated', handlePromosUpdated);
+    
+    // Dispatch a request for status in case the modal already finished
+    window.dispatchEvent(new CustomEvent('query-promo-status'));
+
+    return () => window.removeEventListener('promos-updated', handlePromosUpdated);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,6 +142,9 @@ const Header = ({
           </span>
         </Link>
 
+        {/* Mobile Promo Button */}
+        {hasPromos && <PromoTrigger className="md:hidden ml-2" />}
+
         {/* Navigation Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           {/* Resources Dropdown */}
@@ -168,11 +217,13 @@ const Header = ({
               </div>
             )}
           </div>
-
           {/* Pricing - No Dropdown */}
           <Link to="/pricing" className="text-gray-700 hover:text-green-600 font-medium transition-colors duration-200">
             Pricing
           </Link>
+
+          {/* Desktop Promo Button */}
+          {hasPromos && <PromoTrigger className="hidden md:flex" />}
         </nav>
 
         {/* CTA Buttons and Mobile Menu */}
