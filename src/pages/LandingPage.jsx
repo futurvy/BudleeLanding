@@ -9,6 +9,7 @@ import PracticeSection from '../components/PracticeSection';
 import CuriositySection from '../components/CuriositySection';
 import ParentsSection from '../components/ParentsSection';
 import Footer from '../components/Footer';
+import PromoModal from '../components/PromoModal';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const LandingPage = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <PromoModal />
       <Header />
       <main className="flex-grow">
         <HeroSection />
