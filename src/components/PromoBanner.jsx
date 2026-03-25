@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = "http://localhost:8000/api";
+const BACKEND_URL = "https://staging-apis.budlee.ai/api";
 
 const PromoBanner = () => {
     const [promotions, setPromotions] = useState([]);
