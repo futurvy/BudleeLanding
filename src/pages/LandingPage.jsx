@@ -9,6 +9,7 @@ import PracticeSection from '../components/PracticeSection';
 import CuriositySection from '../components/CuriositySection';
 import ParentsSection from '../components/ParentsSection';
 import Footer from '../components/Footer';
+import PromoBanner from '../components/PromoBanner';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <PromoBanner />
         <CBSECurriculumSection />
         <AfterSchoolSection />
         <UnderstandingSection />

@@ -4,7 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import axios from 'axios';
 
-const BACKEND_URL = "https://apis.budlee.ai/api";
+const BACKEND_URL = "https://staging-apis.budlee.ai/api";
 
 const PromoModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +15,7 @@ const PromoModal = () => {
 
   const DISMISSAL_KEY = 'budlee_promo_dismissed_v1';
 
+  // Fetch promotions once on mount
   useEffect(() => {
     const fetchPromotions = async () => {
       try {
@@ -27,7 +28,6 @@ const PromoModal = () => {
         window.dispatchEvent(new CustomEvent('promos-updated', { detail: { count: promoList.length } }));
 
         if (promoList.length > 0) {
-          // Auto-open only if NOT previously dismissed
           if (!localStorage.getItem(DISMISSAL_KEY)) {
             setIsOpen(true);
           }
@@ -41,25 +41,34 @@ const PromoModal = () => {
     };
 
     fetchPromotions();
+  }, []);
 
-    const handleOpenExternal = () => {
+  // Handle external events in a separate effect to avoid re-fetching
+  useEffect(() => {
+    const handleOpenExternal = (event) => {
+      if (event.detail && event.detail.promotionId) {
+        const index = promotions.findIndex(p => p.id === event.detail.promotionId);
+        if (index !== -1) {
+          setCurrentIndex(index);
+        }
+      }
       setIsOpen(true);
     };
-
-    window.addEventListener('open-promo-modal', handleOpenExternal);
 
     const handleQueryStatus = () => {
       window.dispatchEvent(new CustomEvent('promos-updated', {
         detail: { count: promotions.length }
       }));
     };
+
+    window.addEventListener('open-promo-modal', handleOpenExternal);
     window.addEventListener('query-promo-status', handleQueryStatus);
 
     return () => {
       window.removeEventListener('open-promo-modal', handleOpenExternal);
       window.removeEventListener('query-promo-status', handleQueryStatus);
     };
-  }, [promotions.length]);
+  }, [promotions]); // Re-bind when promotions change to ensure handlers have latest state
 
   const handleManualClose = () => {
     setIsOpen(false);
@@ -80,7 +89,6 @@ const PromoModal = () => {
     setImagesLoaded(prev => ({ ...prev, [id]: true }));
   };
 
-  // Only return null if we are still loading OR if no promotions exist at all
   if (loading || promotions.length === 0) return null;
 
   const currentPromo = promotions[currentIndex];
@@ -98,7 +106,7 @@ const PromoModal = () => {
           onEscapeKeyDown={(e) => e.preventDefault()}
           className="fixed left-[50%] top-[50%] z-[60] w-[92vw] sm:w-fit max-w-full sm:max-w-[85vw] max-h-[98vh] translate-x-[-50%] translate-y-[-50%] focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 duration-300 flex flex-col items-center justify-center p-0"
         >
-          <div className="relative flex flex-col items-center gap-5 sm:gap-6 w-full">
+          <div className="relative flex flex-col items-center w-full">
 
             <DialogPrimitive.Title className="sr-only">Promotions</DialogPrimitive.Title>
             <DialogPrimitive.Description className="sr-only">View current promotions.</DialogPrimitive.Description>
@@ -139,11 +147,11 @@ const PromoModal = () => {
                   </div>
                 )}
 
-                <div className="relative overflow-hidden rounded-[10px] sm:rounded-[20px] shadow-[0_40px_80px_rgba(0,0,0,0.8)] min-h-[300px] sm:min-w-[400px] flex items-center justify-center bg-white/5">
+                <div className="relative overflow-hidden rounded-[10px] sm:rounded-[24px] shadow-[0_40px_80px_rgba(0,0,0,0.9)] flex items-center justify-center">
 
                   {/* Shimmer Placeholder */}
                   {!isCurrentImageLoaded && (
-                    <div className="absolute inset-0 z-10 overflow-hidden">
+                    <div className="absolute inset-0 z-10 overflow-hidden bg-white/5 min-h-[300px] sm:min-w-[400px]">
                       <div className="w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
                     </div>
                   )}
@@ -152,7 +160,7 @@ const PromoModal = () => {
                     src={currentPromo.poster_image_url || currentPromo.poster_image}
                     alt={`Promotion ${currentIndex + 1}`}
                     onLoad={() => handleImageLoad(currentPromo.id)}
-                    className={`w-full sm:w-auto h-auto max-w-full max-h-[75vh] md:max-h-[80vh] object-contain select-none align-middle transition-opacity duration-700 ${isCurrentImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className={`w-full sm:w-auto h-auto max-w-full max-h-[75vh] md:max-h-[80vh] object-contain select-none align-middle block transition-opacity duration-700 ${isCurrentImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     onContextMenu={(e) => e.preventDefault()}
                   />
 
@@ -165,7 +173,7 @@ const PromoModal = () => {
 
             {/* Bottom Actions Area */}
             {isCurrentImageLoaded && (
-              <div className="flex flex-col items-center gap-4 sm:gap-5 w-full max-w-[280px] sm:max-w-[320px] animate-in fade-in slide-in-from-bottom-2 duration-700">
+              <div className="flex flex-col items-center gap-3 mt-4 sm:mt-6 w-full max-w-[280px] sm:max-w-[320px] animate-in fade-in slide-in-from-bottom-2 duration-700">
 
                 {/* Mobile Navigation */}
                 {promotions.length > 1 && (
