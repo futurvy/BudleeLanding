@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = "https://staging-apis.budlee.ai/api";
+const BACKEND_URL = "https://apis.budlee.ai/api";
 
 const PromoBanner = () => {
     const [promotions, setPromotions] = useState([]);
@@ -20,7 +20,7 @@ const PromoBanner = () => {
                 const bannerPromos = promoList
                     .filter(p => p.program_name && p.program_name.trim() !== '')
                     .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
-                
+
                 setPromotions(bannerPromos);
             } catch (error) {
                 console.error("Error fetching banner promotions:", error);

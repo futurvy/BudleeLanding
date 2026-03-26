@@ -4,7 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import axios from 'axios';
 
-const BACKEND_URL = "https://staging-apis.budlee.ai/api";
+const BACKEND_URL = "https://apis.budlee.ai/api";
 
 const PromoModal = () => {
   const [isOpen, setIsOpen] = useState(false);
