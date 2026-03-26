@@ -22,7 +22,8 @@ const PromoModal = () => {
         setLoading(true);
         const response = await axios.get(`${BACKEND_URL}/superadmin/promotions/?platform=LandingPage&is_active=true`);
         const data = response.data;
-        const promoList = Array.isArray(data) ? data : (data.results || []);
+        const promoList = (Array.isArray(data) ? data : (data.results || []))
+          .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
 
         setPromotions(promoList);
         window.dispatchEvent(new CustomEvent('promos-updated', { detail: { count: promoList.length } }));
@@ -69,6 +70,17 @@ const PromoModal = () => {
       window.removeEventListener('query-promo-status', handleQueryStatus);
     };
   }, [promotions]); // Re-bind when promotions change to ensure handlers have latest state
+
+  // Auto-scrolling logic
+  useEffect(() => {
+    if (!isOpen || promotions.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % promotions.length);
+    }, 5000); // 5 seconds interval
+
+    return () => clearInterval(interval);
+  }, [isOpen, promotions.length]);
 
   const handleManualClose = () => {
     setIsOpen(false);

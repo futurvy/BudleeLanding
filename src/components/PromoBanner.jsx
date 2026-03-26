@@ -17,7 +17,10 @@ const PromoBanner = () => {
                 const rawData = response.data;
                 const promoList = Array.isArray(rawData) ? rawData : (rawData.results || []);
 
-                const bannerPromos = promoList.filter(p => p.program_name && p.program_name.trim() !== '');
+                const bannerPromos = promoList
+                    .filter(p => p.program_name && p.program_name.trim() !== '')
+                    .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
+                
                 setPromotions(bannerPromos);
             } catch (error) {
                 console.error("Error fetching banner promotions:", error);
@@ -28,6 +31,17 @@ const PromoBanner = () => {
 
         fetchPromotions();
     }, []);
+
+    // Auto-scrolling logic
+    useEffect(() => {
+        if (promotions.length <= 1) return;
+
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % promotions.length);
+        }, 5000); // 5 seconds interval
+
+        return () => clearInterval(interval);
+    }, [promotions.length]);
 
     const nextPromo = (e) => {
         e.stopPropagation();
