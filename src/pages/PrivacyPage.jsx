@@ -27,7 +27,7 @@ const PrivacyPage = () => {
               At Budlee AI ("we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including our AI-powered chat, community features, quests, and related functionalities. By using the Service, you consent to the practices described herein.
             </p>
             <p className="mb-6">
-              This Privacy Policy is adapted for Budlee AI and complies with applicable Indian laws, including the Information Technology Act, 2000.
+              This Privacy Policy is adapted for Budlee AI and complies with applicable data protection laws.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">1. Information We Collect</h2>
@@ -68,9 +68,13 @@ const PrivacyPage = () => {
               We implement reasonable security measures to protect your data, including encryption and access controls. However, no method is 100% secure.
             </p>
 
-            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">5. Your Rights</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">5. Your Rights & Data Deletion</h2>
+            <p className="mb-4">
+              You have the right to access, correct, or request the deletion of your personal data.
+            </p>
+            <p className="mb-4 font-semibold">Self-Service Account Deletion:</p>
             <p className="mb-6">
-              Under Indian law, you have rights to access, correct, or delete your data. Contact us to exercise these rights.
+              You can initiate the permanent deletion of your account directly within the Budlee AI app by navigating to <strong>Settings &gt; Danger Zone &gt; Delete Account</strong>. Upon confirmation, your personal profile data (name, email, phone, social links) will be permanently deleted from our active records. Please note that historical transaction and payment records are preserved in an anonymized format to comply with financial and legal reporting requirements.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">6. Cookies and Tracking</h2>
