@@ -125,36 +125,35 @@ const PromoModal = () => {
 
             {/* Core Interaction Area */}
             <div className="relative flex items-center justify-center w-full">
-              {/* External Arrows - Desktop Only */}
-              {promotions.length > 1 && isCurrentImageLoaded && (
-                <>
-                  <button
-                    onClick={prevPromo}
-                    className="absolute -left-12 sm:-left-16 md:-left-24 p-3 bg-white/5 hover:bg-white/10 text-white rounded-full transition-all backdrop-blur-sm z-[70] hidden sm:flex border border-white/10"
-                  >
-                    <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </button>
-                  <button
-                    onClick={nextPromo}
-                    className="absolute -right-12 sm:-right-16 md:-right-24 p-3 bg-white/5 hover:bg-white/10 text-white rounded-full transition-all backdrop-blur-sm z-[70] hidden sm:flex border border-white/10"
-                  >
-                    <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </button>
-                </>
-              )}
-
               {/* The Poster Area */}
               <div className="relative w-full sm:w-auto overflow-visible group">
+                {/* External Arrows - Desktop Only - Now Overlayed */}
+                {promotions.length > 1 && isCurrentImageLoaded && (
+                  <>
+                    <button
+                      onClick={prevPromo}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
+                    >
+                      <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+                    </button>
+                    <button
+                      onClick={nextPromo}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
+                    >
+                      <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+                    </button>
+                  </>
+                )}
 
-                {/* Small Close Button - Just Outside Top Corner */}
+                {/* Small Close Button - Overlayed Top Corner */}
                 {isCurrentImageLoaded && (
-                  <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-[80] animate-in fade-in duration-500">
+                  <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-[80] animate-in fade-in duration-500">
                     <button
                       onClick={handleManualClose}
-                      className="p-1.5 sm:p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all duration-200 hover:scale-110 focus:outline-none ring-1 ring-white/20 backdrop-blur-md"
+                      className="p-2 sm:p-2.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 hover:rotate-90 active:scale-90 focus:outline-none border border-white/30 backdrop-blur-md shadow-lg"
                       aria-label="Close"
                     >
-                      <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <X className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                   </div>
                 )}
@@ -192,9 +191,9 @@ const PromoModal = () => {
                   <div className="flex sm:hidden items-center gap-6 mb-1">
                     <button
                       onClick={prevPromo}
-                      className="p-2.5 bg-white/10 text-white rounded-full active:scale-95 transition-transform"
+                      className="p-3 bg-black/40 text-white rounded-full active:scale-90 transition-all border border-white/20 backdrop-blur-sm shadow-md"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-6 h-6" />
                     </button>
 
                     <div className="flex gap-1.5">
@@ -208,9 +207,9 @@ const PromoModal = () => {
 
                     <button
                       onClick={nextPromo}
-                      className="p-2.5 bg-white/10 text-white rounded-full active:scale-95 transition-transform"
+                      className="p-3 bg-black/40 text-white rounded-full active:scale-90 transition-all border border-white/20 backdrop-blur-sm shadow-md"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-6 h-6" />
                     </button>
                   </div>
                 )}
