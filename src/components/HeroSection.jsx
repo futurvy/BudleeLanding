@@ -1,9 +1,17 @@
-import React from 'react';
-import { Play, Atom, FlaskConical, Lightbulb, Star, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Play, Atom, FlaskConical, Lightbulb, Star, Sparkles, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { heroData } from '../data/mock.js';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogClose,
+} from "./ui/dialog";
 
 const HeroSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="w-full bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-16 md:py-5 px-4 md:px-12 lg:px-20 relative overflow-hidden">
       {/* Gradient Background */}
@@ -66,38 +74,64 @@ const HeroSection = () => {
             
             {/* Left Side - Tilted Image with Play Button */}
             <div className="relative w-full lg:w-1/2 flex justify-center">
-              <div className="relative transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                {/* Shadow underneath */}
-                <div className="absolute inset-0 bg-green-200/50 rounded-2xl md:rounded-3xl transform translate-x-2 md:translate-x-3 translate-y-2 md:translate-y-3 -rotate-1"></div>
-                
-                {/* Main Image Container - Smaller on mobile */}
-                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-white border-2 md:border-4 border-white w-[300px] h-[230px] md:w-[420px] md:h-[320px]">
-                  <img
-                    src={heroData.heroImage}
-                    alt="Student learning with Budlee AI"
-                    className="w-full h-full object-cover object-center"
-                  />
-                  
-                  {/* Play Button - Prominent and Clickable */}
-                  <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group">
-                    <div className="relative">
-                      {/* Outer pulsing ring */}
-                      <div className="absolute inset-0 w-14 h-14 md:w-20 md:h-20 -m-1 md:-m-2 rounded-full bg-white/30 animate-ping"></div>
-                      {/* Main button */}
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative z-10">
-                        <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 flex items-center justify-center shadow-lg">
-                          <Play className="w-4 h-4 md:w-5 md:h-5 text-white fill-white ml-0.5" />
+              <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogTrigger asChild>
+                  <div className="relative transform rotate-2 hover:rotate-0 transition-all duration-500 cursor-pointer group/hero">
+                    {/* Shadow underneath */}
+                    <div className="absolute inset-0 bg-green-200/50 rounded-2xl md:rounded-3xl transform translate-x-3 translate-y-3 -rotate-1 group-hover/hero:translate-x-4 group-hover/hero:translate-y-4 transition-transform"></div>
+                    
+                    {/* Main Image Container - Smaller on mobile */}
+                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-white border-2 md:border-4 border-white w-[300px] h-[230px] md:w-[420px] md:h-[320px]">
+                      <img
+                        src={heroData.heroImage}
+                        alt="Student learning with Budlee AI"
+                        className="w-full h-full object-cover object-center group-hover/hero:scale-105 transition-transform duration-700"
+                      />
+                      
+                      {/* Play Button - Prominent and Clickable */}
+                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group">
+                        <div className="relative">
+                          {/* Outer pulsing ring */}
+                          <div className="absolute inset-0 w-14 h-14 md:w-20 md:h-20 -m-1 md:-m-2 rounded-full bg-white/30 animate-ping"></div>
+                          {/* Main button */}
+                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 flex items-center justify-center shadow-lg">
+                              <Play className="w-4 h-4 md:w-5 md:h-5 text-white fill-white ml-0.5" />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </button>
-                </div>
 
-                {/* Decorative curved line - Hidden on mobile */}
-                <svg className="absolute -left-6 bottom-1/4 w-16 h-16 text-green-400 opacity-60 hidden md:block" viewBox="0 0 100 100">
-                  <path d="M 10 50 Q 50 10 90 50" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" />
-                </svg>
-              </div>
+                    {/* Decorative curved line - Hidden on mobile */}
+                    <svg className="absolute -left-6 bottom-1/4 w-16 h-16 text-green-400 opacity-60 hidden md:block" viewBox="0 0 100 100">
+                      <path d="M 10 50 Q 50 10 90 50" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                </DialogTrigger>
+
+                <DialogContent className="max-w-5xl p-0 bg-black border-none overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.4)] sm:rounded-2xl border-white/10 [&>button]:hidden">
+                  <div className="relative aspect-video w-full group/video">
+                    <video 
+                      className="w-full h-full"
+                      controls
+                      autoPlay
+                      playsInline
+                      controlsList="nodownload"
+                      onContextMenu={(e) => e.preventDefault()}
+                    >
+                      <source src="/videos/hero.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    
+                    {/* Custom Close Button for video player */}
+                    <DialogClose className="absolute top-4 right-4 text-white/70 hover:text-white transition-all z-50 p-2 bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-md opacity-0 group-hover/video:opacity-100 focus:opacity-100">
+                      <X size={24} />
+                      <span className="sr-only">Close</span>
+                    </DialogClose>
+                  </div>
+                </DialogContent>
+              </Dialog>
               
               {/* Budlee Character with Speech Bubble */}
               <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-6 z-20">
