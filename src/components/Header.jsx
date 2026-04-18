@@ -4,8 +4,8 @@ import { Button } from './ui/button';
 import { ChevronDown, Menu, X, Sparkles } from 'lucide-react';
 import axios from 'axios';
 
-const Header = ({ 
-  ctaText = "Explore Budlee AI", 
+const Header = ({
+  ctaText = "Explore Budlee AI",
   ctaLink = "https://app.budlee.ai/",
   ctaOnClick = null,
   secondaryCtaText = null,
@@ -76,24 +76,23 @@ const Header = ({
   };
 
   return (
-    <header className={`w-full py-3 md:py-4 px-4 md:px-12 lg:px-20 sticky top-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-md' 
-        : 'bg-gradient-to-r from-green-50/80 via-yellow-50/80 to-orange-50/80'
-    }`}>
+    <header className={`w-full py-3 md:py-4 px-4 md:px-12 lg:px-20 sticky top-0 z-50 transition-all duration-300 ${isScrolled
+      ? 'bg-white/95 backdrop-blur-md shadow-md'
+      : 'bg-gradient-to-r from-green-50/80 via-yellow-50/80 to-orange-50/80'
+      }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo - Clickable, links to home */}
         <Link to="/" className="flex flex-col items-center hover:opacity-80 transition-opacity">
           {/* Wide Logo */}
-          <img 
-            src="/images/logo_wide.png" 
-            alt="Budlee AI" 
+          <img
+            src="/images/logo_wide.png"
+            alt="Budlee AI"
             className="w-40 md:w-48 h-auto object-contain"
             onContextMenu={(e) => e.preventDefault()}
           />
           {/* Slogan */}
           <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
-            Learn Better. Build Curiosity
+            Learn Better. Grow Curiosity.
           </span>
         </Link>
 
@@ -181,18 +180,18 @@ const Header = ({
           <div className="hidden md:flex items-center gap-3">
             {/* School Login Button */}
             <a href="https://dash.budlee.ai">
-              <Button 
+              <Button
                 variant="outline"
                 className="border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
               >
                 School Login
               </Button>
             </a>
-            
+
             {/* Secondary Button (if provided) */}
             {secondaryCtaText && (
               <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
-                <Button 
+                <Button
                   variant="outline"
                   className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
                 >
@@ -200,10 +199,10 @@ const Header = ({
                 </Button>
               </a>
             )}
-            
+
             {/* Primary Button */}
             {ctaOnClick ? (
-              <Button 
+              <Button
                 onClick={handlePrimaryClick}
                 className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               >
@@ -211,7 +210,7 @@ const Header = ({
               </Button>
             ) : (
               <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
-                <Button 
+                <Button
                   className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   {ctaText}
@@ -238,7 +237,7 @@ const Header = ({
         {isMobileMenuOpen && (
           <>
             {/* Backdrop */}
-            <div 
+            <div
               className="md:hidden fixed inset-0 top-[73px] bg-black/20 backdrop-blur-sm z-30"
               onClick={closeMobileMenu}
             />
@@ -340,17 +339,17 @@ const Header = ({
                   {/* Mobile CTA Buttons */}
                   <div className="pt-4 border-t border-gray-200 flex flex-row justify-center gap-3">
                     <a href="https://dash.budlee.ai">
-                      <Button 
+                      <Button
                         variant="outline"
                         className="border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
                       >
                         School Login
                       </Button>
                     </a>
-                    
+
                     {secondaryCtaText && (
                       <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
-                        <Button 
+                        <Button
                           variant="outline"
                           className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
                         >
@@ -358,9 +357,9 @@ const Header = ({
                         </Button>
                       </a>
                     )}
-                    
+
                     {ctaOnClick ? (
-                      <Button 
+                      <Button
                         onClick={() => { handlePrimaryClick(); closeMobileMenu(); }}
                         className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                       >
@@ -368,7 +367,7 @@ const Header = ({
                       </Button>
                     ) : (
                       <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
-                        <Button 
+                        <Button
                           className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                         >
                           {ctaText}
