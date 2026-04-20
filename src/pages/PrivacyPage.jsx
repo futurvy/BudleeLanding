@@ -18,7 +18,7 @@ const PrivacyPage = () => {
               Privacy Policy
             </h1>
             <p className="text-gray-700 text-base md:text-lg font-medium">
-              Effective Date: February 10, 2026
+              Effective Date: April 20, 2026
             </p>
           </div>
 
@@ -27,7 +27,7 @@ const PrivacyPage = () => {
               At Budlee AI ("we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including our AI-powered chat, community features, quests, and related functionalities. By using the Service, you consent to the practices described herein.
             </p>
             <p className="mb-6">
-              This Privacy Policy is adapted for Budlee AI and complies with applicable data protection laws.
+              This Privacy Policy is adapted for Budlee AI and complies with applicable data protection laws, including transparency requirements for artificial intelligence systems.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">1. Information We Collect</h2>
@@ -37,8 +37,8 @@ const PrivacyPage = () => {
             <ul className="list-disc pl-6 mb-6 space-y-2">
               <li><strong>Personal Information:</strong> Name, email, phone number, and payment details when you register or make transactions.</li>
               <li><strong>Usage Data:</strong> Information about how you interact with the Service, such as chat logs, quest completions, community posts, and device information (e.g., IP address, browser type).</li>
-              <li><strong>Content:</strong> Any text, images, or data you upload or generate through AI features.</li>
-              <li><strong>Payment Information:</strong> Processed via third-party providers like Stripe and RazorPay; we do not store full payment details.</li>
+              <li><strong>AI Interaction Content:</strong> The text, queries, and content you share during chat interactions with Budlee AI.</li>
+              <li><strong>Payment Information:</strong> Processed via third-party providers like Stripe and RazorPay; we do not store full payment details on our servers.</li>
             </ul>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">2. How We Use Information</h2>
@@ -49,7 +49,8 @@ const PrivacyPage = () => {
               <li>Provide, maintain, and personalize the Service.</li>
               <li>Process payments securely through Stripe and RazorPay.</li>
               <li>Improve AI responses, community interactions, and quest features.</li>
-              <li>Communicate updates, support, and marketing (with your consent).</li>
+              <li>Train and improve our AI models (subject to your explicit consent).</li>
+              <li>Communicate updates, support, and marketing (where permitted).</li>
               <li>Ensure security and comply with legal obligations.</li>
             </ul>
 
@@ -58,14 +59,15 @@ const PrivacyPage = () => {
               We do not sell your personal information. We may share it:
             </p>
             <ul className="list-disc pl-6 mb-6 space-y-2">
-              <li>With service providers (e.g., Stripe and RazorPay for payments).</li>
+              <li>With service providers (e.g., payment processors and technical infrastructure partners).</li>
+              <li>With AI service partners to process and generate responses (data is typically anonymized or pseudonymized).</li>
               <li>For legal reasons, such as responding to court orders.</li>
               <li>In case of a merger or acquisition.</li>
             </ul>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">4. Data Security</h2>
             <p className="mb-6">
-              We implement reasonable security measures to protect your data, including encryption and access controls. However, no method is 100% secure.
+              We implement reasonable security measures to protect your data, including encryption and access controls. However, no method of transmission over the internet or electronic storage is 100% secure.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">5. Your Rights & Data Deletion</h2>
@@ -74,12 +76,12 @@ const PrivacyPage = () => {
             </p>
             <p className="mb-4 font-semibold">Self-Service Account Deletion:</p>
             <p className="mb-6">
-              You can initiate the permanent deletion of your account directly within the Budlee AI app by navigating to <strong>Settings &gt; Danger Zone &gt; Delete Account</strong>. Upon confirmation, your personal profile data (name, email, phone, social links) will be permanently deleted from our active records. Please note that historical transaction and payment records are preserved in an anonymized format to comply with financial and legal reporting requirements.
+              You can initiate the permanent deletion of your account directly within the Budlee AI app by navigating to <strong>Settings &gt; Danger Zone &gt; Delete Account</strong>. Upon confirmation, your personal profile data (name, email, phone, social links) will be permanently deleted from our active records. Historical transaction and payment records are preserved in an anonymized format for financial compliance.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">6. Cookies and Tracking</h2>
             <p className="mb-6">
-              We use cookies to enhance your experience. You can manage cookie preferences in your browser.
+              We use cookies to enhance your experience. You can manage cookie preferences in your browser settings.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">7. Third-Party Services</h2>
@@ -89,15 +91,34 @@ const PrivacyPage = () => {
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">8. Children's Privacy</h2>
             <p className="mb-6">
-              The Service is not intended for children under 18 without the proper guidance and consent of their parents or guardians. We do not knowingly collect data from minors without such consent.
+              The Service is not intended for children under 18 without parental or guardian guidance. We do not knowingly collect data from minors without such consent.
             </p>
 
-            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">9. Changes to This Policy</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">9. AI Interaction & Data Consent</h2>
+            <p className="mb-4">
+              Budlee AI uses generative artificial intelligence to provide educational assistance.
+            </p>
+            <ul className="list-disc pl-6 mb-6 space-y-4">
+              <li>
+                <strong>Model Training:</strong> We may use anonymized chat interactions to train and improve Budlee AI's accuracy and safety. We only do this with your explicit consent.
+              </li>
+              <li>
+                <strong>Opt-In/Opt-Out:</strong> You can grant or withdraw your AI Data Usage Consent at any time via <strong>Settings &gt; Privacy & AI Settings &gt; AI Data Usage Consent</strong>. If you opt-out, your future interactions will not be used for model training.
+              </li>
+              <li>
+                <strong>Accuracy Warning:</strong> Budlee AI is an advanced tool, but it can occasionally generate incorrect information. Users are encouraged to verify important facts with textbooks or teachers.
+              </li>
+              <li>
+                <strong>Safety:</strong> Do not share sensitive personal information (passwords, health data, or financial secrets) within the chat interface.
+              </li>
+            </ul>
+
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">10. Changes to This Policy</h2>
             <p className="mb-6">
-              We may update this Policy. We will notify you of significant changes.
+              We may update this Policy. We will notify you of any significant changes by posting the new Policy and updating the "Effective Date" at the top of this page.
             </p>
 
-            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">10. Contact Us</h2>
+            <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">11. Contact Us</h2>
             <div className="mb-6">
               <p className="mb-2">For privacy inquiries:</p>
               <p className="font-semibold">Budlee AI Data Privacy Team</p>
