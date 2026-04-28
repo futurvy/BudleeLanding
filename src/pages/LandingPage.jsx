@@ -11,6 +11,7 @@ import CuriositySection from '../components/CuriositySection';
 import ParentsSection from '../components/ParentsSection';
 import Footer from '../components/Footer';
 import PromoBanner from '../components/PromoBanner';
+import AppDownloadSection from '../components/AppDownloadSection';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const LandingPage = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection videoUrl={heroVideo} />
+        <AppDownloadSection />
         <PromoBanner />
         <CBSECurriculumSection />
         <AfterSchoolSection />
