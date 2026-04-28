@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import mixpanel from 'mixpanel-browser';
+import { useSignedVideo } from '../hooks/useSignedVideo';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import CBSECurriculumSection from '../components/CBSECurriculumSection';
@@ -15,16 +16,21 @@ const LandingPage = () => {
   useEffect(() => {
     mixpanel.track('Landing Page Viewed');
   }, []);
+
+  const heroVideo = useSignedVideo('settings/landing_videos/hero.mp4');
+  const chatVideo = useSignedVideo('settings/landing_videos/chat.mp4');
+  const questVideo = useSignedVideo('settings/landing_videos/quest.mp4');
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main className="flex-grow">
-        <HeroSection />
+        <HeroSection videoUrl={heroVideo} />
         <PromoBanner />
         <CBSECurriculumSection />
         <AfterSchoolSection />
-        <UnderstandingSection />
-        <PracticeSection />
+        <UnderstandingSection videoUrl={chatVideo} />
+        <PracticeSection videoUrl={questVideo} />
         <CuriositySection />
         <ParentsSection />
       </main>

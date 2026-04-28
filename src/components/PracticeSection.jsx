@@ -7,7 +7,7 @@ import {
   DialogClose,
 } from "./ui/dialog";
 
-const PracticeSection = () => {
+const PracticeSection = ({ videoUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -118,8 +118,9 @@ const PracticeSection = () => {
                     playsInline
                     controlsList="nodownload"
                     onContextMenu={(e) => e.preventDefault()}
+                    key={videoUrl}
                   >
-                    <source src="/videos/quest.mp4" type="video/mp4" />
+                    <source src={videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   
