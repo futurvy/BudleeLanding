@@ -52,7 +52,7 @@ const ParentsSection = () => {
                     </div>
                     <div>
                       <h4 className="text-white font-bold text-sm md:text-base">Ria's Progress</h4>
-                      <p className="text-green-100 text-xs">Grade 8 • Science</p>
+                      <p className="text-green-100 text-xs">Grade 8 • Science and Math</p>
                     </div>
                   </div>
                   <img 

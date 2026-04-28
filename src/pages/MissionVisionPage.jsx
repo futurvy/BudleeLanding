@@ -234,7 +234,7 @@ const MissionVisionPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap text-white">Our Impact Goals</h2>
             <p className="text-green-100 text-lg mb-8">
-              We're starting with CBSE curriculum and grades 6-10, but our vision extends globally
+              We're starting with CBSE curriculum and grades 6-12, but our vision extends globally
             </p>
 
             <div className="grid md:grid-cols-4 gap-6">

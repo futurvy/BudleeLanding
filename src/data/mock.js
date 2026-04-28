@@ -13,11 +13,13 @@ export const curriculumData = {
   highlight: "CBSE",
   subtitle: "Curriculum",
   classes: [
-    { class: "Grade 6", subject: "Science" },
-    { class: "Grade 7", subject: "Science" },
-    { class: "Grade 8", subject: "Science" },
-    { class: "Grade 9", subject: "Science" },
-    { class: "Grade 10", subject: "Science" }
+    { class: "Grade 6", subject: "Science and Math" },
+    { class: "Grade 7", subject: "Science and Math" },
+    { class: "Grade 8", subject: "Science and Math" },
+    { class: "Grade 9", subject: "Science and Math" },
+    { class: "Grade 10", subject: "Science and Math" },
+    { class: "Grade 11", subject: "Science and Math" },
+    { class: "Grade 12", subject: "Science and Math" }
   ]
 };
 

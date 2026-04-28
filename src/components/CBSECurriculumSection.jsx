@@ -21,7 +21,7 @@ const CBSECurriculumSection = () => {
             {/* Science Label with Icon */}
             <div className="flex items-center gap-1.5 md:gap-2 text-gray-600">
               <FlaskConical className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
-              <span className="font-semibold text-sm md:text-base">Science</span>
+              <span className="font-semibold text-sm md:text-base">Science and Math</span>
             </div>
           </div>
 

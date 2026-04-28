@@ -144,7 +144,7 @@ const OurStoryPage = () => {
                     <div className="text-gray-600">Curriculum Focus</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-green-600 mb-2">6-10</div>
+                    <div className="text-3xl font-bold text-green-600 mb-2">6-12</div>
                     <div className="text-gray-600">Grade Range</div>
                   </div>
                 </div>

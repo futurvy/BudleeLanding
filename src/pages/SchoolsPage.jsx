@@ -168,14 +168,14 @@ const SchoolsPage = () => {
               {/* Science with Icon */}
               <div className="flex items-center gap-1.5">
                 <FlaskConical className="w-4 h-4 text-green-500" />
-                <span className="text-gray-600 font-medium text-sm md:text-base">Science</span>
+                <span className="text-gray-600 font-medium text-sm md:text-base">Science and Math</span>
               </div>
               
               <span className="text-gray-300">·</span>
               
               {/* Grades Pill */}
               <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 text-white font-bold text-xs md:text-sm px-3 py-1 rounded-full">
-                Grades 6–10
+                Grades 6–12
               </span>
             </div>
           </div>
