@@ -175,7 +175,28 @@ const Header = ({
         </nav>
 
         {/* CTA Buttons and Mobile Menu */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Mobile Auth Buttons - Top Header */}
+          <div className="flex md:hidden items-center gap-1.5 mr-1">
+            <a href="https://app.budlee.ai/#/login">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-green-500 text-green-600 font-bold px-2 py-1 h-8 text-[10px] rounded-lg transition-all duration-300"
+              >
+                Login
+              </Button>
+            </a>
+            <a href="https://app.budlee.ai/#/signup">
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 text-white font-bold px-2 py-1 h-8 text-[10px] rounded-lg shadow-sm transition-all duration-300"
+              >
+                Sign Up
+              </Button>
+            </a>
+          </div>
+
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             {/* School Login Button */}
@@ -188,34 +209,54 @@ const Header = ({
               </Button>
             </a>
 
-            {/* Secondary Button (if provided) */}
-            {secondaryCtaText && (
-              <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
-                >
-                  {secondaryCtaText}
-                </Button>
-              </a>
-            )}
-
-            {/* Primary Button */}
-            {ctaOnClick ? (
-              <Button
-                onClick={handlePrimaryClick}
-                className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                {ctaText}
-              </Button>
+            {/* Auth Buttons or Custom CTA */}
+            {ctaText === "Explore Budlee AI" ? (
+              <>
+                <a href="https://app.budlee.ai/#/login">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
+                  >
+                    Login
+                  </Button>
+                </a>
+                <a href="https://app.budlee.ai/#/signup">
+                  <Button
+                    className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                  >
+                    Sign Up
+                  </Button>
+                </a>
+              </>
             ) : (
-              <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
-                <Button
-                  className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-                >
-                  {ctaText}
-                </Button>
-              </a>
+              <>
+                {secondaryCtaText && (
+                  <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer">
+                    <Button
+                      variant="outline"
+                      className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl transition-all duration-300"
+                    >
+                      {secondaryCtaText}
+                    </Button>
+                  </a>
+                )}
+                {ctaOnClick ? (
+                  <Button
+                    onClick={handlePrimaryClick}
+                    className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                  >
+                    {ctaText}
+                  </Button>
+                ) : (
+                  <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer">
+                    <Button
+                      className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-4 py-4 md:px-6 md:py-5 text-xs md:text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                    >
+                      {ctaText}
+                    </Button>
+                  </a>
+                )}
+              </>
             )}
           </div>
 
@@ -337,42 +378,65 @@ const Header = ({
                   </div>
 
                   {/* Mobile CTA Buttons */}
-                  <div className="pt-4 border-t border-gray-200 flex flex-row justify-center gap-3">
-                    <a href="https://dash.budlee.ai">
-                      <Button
-                        variant="outline"
-                        className="border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
-                      >
-                        School Login
-                      </Button>
-                    </a>
-
-                    {secondaryCtaText && (
-                      <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                  <div className="pt-4 border-t border-gray-200 space-y-4">
+                    <div className="flex flex-row justify-center gap-3">
+                      <a href="https://dash.budlee.ai" className="flex-1">
                         <Button
                           variant="outline"
-                          className="border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold px-6 py-3 rounded-xl transition-all duration-300"
+                          className="w-full border-2 border-green-500 bg-transparent text-green-600 hover:bg-green-50 font-bold py-3 rounded-xl transition-all duration-300"
                         >
-                          {secondaryCtaText}
+                          School Login
                         </Button>
                       </a>
-                    )}
-
-                    {ctaOnClick ? (
-                      <Button
-                        onClick={() => { handlePrimaryClick(); closeMobileMenu(); }}
-                        className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-                      >
-                        {ctaText}
-                      </Button>
-                    ) : (
-                      <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                    </div>
+                    
+                    <div className="flex flex-row justify-center gap-3">
+                      <a href="https://app.budlee.ai/#/login" className="flex-1">
                         <Button
-                          className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                          variant="outline"
+                          className="w-full border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold py-3 rounded-xl transition-all duration-300"
                         >
-                          {ctaText}
+                          Login
                         </Button>
                       </a>
+                      <a href="https://app.budlee.ai/#/signup" className="flex-1">
+                        <Button
+                          className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 text-white font-bold py-3 rounded-xl shadow-md transition-all duration-300"
+                        >
+                          Sign Up
+                        </Button>
+                      </a>
+                    </div>
+
+                    {ctaText !== "Explore Budlee AI" && (
+                      <div className="flex flex-col gap-3">
+                        {secondaryCtaText && (
+                          <a href={secondaryCtaLink} target={secondaryCtaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                            <Button
+                              variant="outline"
+                              className="w-full border-2 border-emerald-500 bg-transparent text-emerald-600 hover:bg-emerald-50 font-bold py-3 rounded-xl transition-all duration-300"
+                            >
+                              {secondaryCtaText}
+                            </Button>
+                          </a>
+                        )}
+                        {ctaOnClick ? (
+                          <Button
+                            onClick={() => { handlePrimaryClick(); closeMobileMenu(); }}
+                            className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 text-white font-bold py-3 rounded-xl shadow-md transition-all duration-300"
+                          >
+                            {ctaText}
+                          </Button>
+                        ) : (
+                          <a href={ctaLink} target={ctaTarget} rel="noopener noreferrer" onClick={closeMobileMenu}>
+                            <Button
+                              className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 text-white font-bold py-3 rounded-xl shadow-md transition-all duration-300"
+                            >
+                              {ctaText}
+                            </Button>
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
