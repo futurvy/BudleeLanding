@@ -117,8 +117,11 @@ const Footer = ({
 
             {/* Right - Copyright + Contact/Terms/Privacy */}
             <div className="flex flex-col items-center md:items-end gap-1">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm text-center md:text-right">
                 © 2026 Budlee AI. All rights reserved.
+              </p>
+              <p className="text-gray-400 text-xs text-center md:text-right">
+                Budlee AI is a product of Needoo AI Innovations LLP.
               </p>
               <div className="flex items-center gap-3">
                 <Link to="/contact" className="text-gray-500 hover:text-green-600 text-sm font-medium transition-colors">

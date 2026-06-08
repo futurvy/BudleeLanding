@@ -303,7 +303,7 @@ const HelpCenterPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Visit Our Office</h2>
             <p className="text-green-100 text-lg mb-8">
-              Located in the heart of innovation at Kannur University
+              Located in Malappuram, Kerala
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl max-w-2xl mx-auto">
@@ -311,10 +311,10 @@ const HelpCenterPage = () => {
                 <MapPin className="w-6 h-6 text-white mt-1 flex-shrink-0" />
                 <div className="text-white">
                   <h3 className="font-bold mb-2">Budlee AI Corporate Office</h3>
-                  <p className="mb-1">LEAP Startup Incubation Centre</p>
-                  <p className="mb-1">Kannur University, Thavakkara Campus</p>
-                  <p className="mb-1">Civil Station P.O., Kannur, Kerala - 670002</p>
-                  <p className="font-medium">India</p>
+                  <p className="mb-1">BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,</p>
+                  <p className="mb-1">MALAPPURAM, KODUR-MALABAR,</p>
+                  <p className="mb-1">KERALA - 676504</p>
+                  <p className="font-medium">INDIA</p>
                 </div>
               </div>
 

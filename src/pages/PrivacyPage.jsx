@@ -24,7 +24,7 @@ const PrivacyPage = () => {
 
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-6">
-              At Budlee AI ("we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including our AI-powered chat, community features, quests, and related functionalities. By using the Service, you consent to the practices described herein.
+              At Budlee AI (a product of Needoo AI Innovations LLP, hereinafter "we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including our AI-powered chat, community features, quests, and related functionalities. By using the Service, you consent to the practices described herein.
             </p>
             <p className="mb-6">
               This Privacy Policy is adapted for Budlee AI and complies with applicable data protection laws, including transparency requirements for artificial intelligence systems.
@@ -125,10 +125,10 @@ const PrivacyPage = () => {
               <p><a href="mailto:privacy@budlee.ai" className="text-green-600 hover:text-green-700 underline">privacy@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
-                LEAP Startup Incubation Centre,<br />
-                Kannur University, Thavakkara Campus,<br />
-                Civil Station P.O., Kannur, Kerala - 670002<br />
-                India
+                BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,<br />
+                MALAPPURAM, KODUR-MALABAR,<br />
+                KERALA - 676504,<br />
+                INDIA
               </p>
             </div>
           </div>

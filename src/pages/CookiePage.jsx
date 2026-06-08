@@ -24,7 +24,7 @@ const CookiePage = () => {
 
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-6">
-              At Budlee AI ("we," "us," or "our"), we use cookies and similar technologies to enhance your experience on our Service, including our AI-powered chat, community features, and quests. This Cookie Policy explains how we use cookies, your choices, and related information. By using our Service, you consent to our use of cookies as described herein.
+              At Budlee AI (a product of Needoo AI Innovations LLP, hereinafter "we," "us," or "our"), we use cookies and similar technologies to enhance your experience on our Service, including our AI-powered chat, community features, and quests. This Cookie Policy explains how we use cookies, your choices, and related information. By using our Service, you consent to our use of cookies as described herein.
             </p>
             <p className="mb-6">
               This policy is adapted for Budlee AI and complies with applicable laws, including the Information Technology Act, 2000, of India.
@@ -81,10 +81,10 @@ const CookiePage = () => {
               <p><a href="mailto:privacy@budlee.ai" className="text-green-600 hover:text-green-700 underline">privacy@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
-                LEAP Startup Incubation Centre,<br />
-                Kannur University, Thavakkara Campus,<br />
-                Civil Station P.O., Kannur, Kerala - 670002<br />
-                India
+                BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,<br />
+                MALAPPURAM, KODUR-MALABAR,<br />
+                KERALA - 676504,<br />
+                INDIA
               </p>
             </div>
           </div>

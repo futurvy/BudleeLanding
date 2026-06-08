@@ -24,7 +24,7 @@ const TermsPage = () => {
 
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-6">
-              Welcome to Budlee AI (the "Service"), an AI-powered platform provided by Futurvy Pvt. Ltd. ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the Service, including our website, mobile applications, and related services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, please do not use the Service.
+              Welcome to Budlee AI (the "Service"), an AI-powered platform provided by Needoo AI Innovations LLP ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the Service, including our website, mobile applications, and related services. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, please do not use the Service.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">1. Definitions</h2>
@@ -81,7 +81,7 @@ const TermsPage = () => {
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">9. Governing Law and Dispute Resolution</h2>
             <p className="mb-6">
-              These Terms are governed by the laws of India. Any disputes shall be resolved through arbitration in Kannur, Kerala, under the Arbitration and Conciliation Act, 1996.
+              These Terms are governed by the laws of India. Any disputes shall be resolved through arbitration in Malappuram, Kerala, under the Arbitration and Conciliation Act, 1996.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">10. Amendments</h2>
@@ -96,10 +96,10 @@ const TermsPage = () => {
               <p><a href="mailto:legal@budlee.ai" className="text-green-600 hover:text-green-700 underline">legal@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
-                LEAP Startup Incubation Centre,<br />
-                Kannur University, Thavakkara Campus,<br />
-                Civil Station P.O., Kannur, Kerala - 670002<br />
-                India
+                BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,<br />
+                MALAPPURAM, KODUR-MALABAR,<br />
+                KERALA - 676504,<br />
+                INDIA
               </p>
             </div>
           </div>

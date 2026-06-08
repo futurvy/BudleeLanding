@@ -24,7 +24,7 @@ const RefundPage = () => {
 
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-6">
-              At Budlee AI ("we," "us," or "our"), we strive to provide a seamless experience with our AI-powered platform, including chat, community, and quest features. This Refund Policy outlines our policies regarding payments, subscriptions, and refunds. By using our Service, you agree to this policy.
+              At Budlee AI (a product of Needoo AI Innovations LLP, hereinafter "we," "us," or "our"), we strive to provide a seamless experience with our AI-powered platform, including chat, community, and quest features. This Refund Policy outlines our policies regarding payments, subscriptions, and refunds. By using our Service, you agree to this policy.
             </p>
 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">1. Subscription Model</h2>
@@ -68,10 +68,10 @@ const RefundPage = () => {
               <p><a href="mailto:help@budlee.ai" className="text-green-600 hover:text-green-700 underline">help@budlee.ai</a></p>
               <p className="mt-2">
                 Budlee AI Corporate Office,<br />
-                LEAP Startup Incubation Centre,<br />
-                Kannur University, Thavakkara Campus,<br />
-                Civil Station P.O., Kannur, Kerala - 670002<br />
-                India
+                BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,<br />
+                MALAPPURAM, KODUR-MALABAR,<br />
+                KERALA - 676504,<br />
+                INDIA
               </p>
             </div>
           </div>

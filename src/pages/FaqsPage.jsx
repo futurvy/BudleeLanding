@@ -335,13 +335,13 @@ const FaqsPage = () => {
 
               <div className="bg-white p-6 rounded-2xl shadow-lg">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Visit Our Office</h3>
-                <p className="text-gray-600 mb-4">Located in Kannur University</p>
+                <p className="text-gray-600 mb-4">Located in Malappuram, Kerala</p>
                 <div className="text-sm text-gray-600 text-left">
                   <p className="font-medium">Budlee AI Corporate Office</p>
-                  <p>LEAP Startup Incubation Centre</p>
-                  <p>Kannur University, Thavakkara Campus</p>
-                  <p>Civil Station P.O., Kannur, Kerala - 670002</p>
-                  <p className="font-medium mt-1">India</p>
+                  <p>BUILDING NO 18 214 C KODUR PO NEAR BHARATH PETROLEUM,</p>
+                  <p>MALAPPURAM, KODUR-MALABAR,</p>
+                  <p>KERALA - 676504</p>
+                  <p className="font-medium mt-1">INDIA</p>
                 </div>
               </div>
             </div>
