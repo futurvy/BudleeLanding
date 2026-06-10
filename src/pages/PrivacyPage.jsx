@@ -18,10 +18,10 @@ const PrivacyPage = () => {
               Privacy Policy
             </h1>
             <p className="text-gray-700 text-base md:text-lg font-medium">
-              Effective Date: April 20, 2026
+              Effective Date: June 10, 2026
             </p>
           </div>
-
+ 
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-6">
               At Budlee AI (a product of Needoo AI Innovations LLP, hereinafter "we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service, including our AI-powered chat, community features, quests, and related functionalities. By using the Service, you consent to the practices described herein.
@@ -29,7 +29,7 @@ const PrivacyPage = () => {
             <p className="mb-6">
               This Privacy Policy is adapted for Budlee AI and complies with applicable data protection laws, including transparency requirements for artificial intelligence systems.
             </p>
-
+ 
             <h2 className="hero-tagline text-2xl md:text-3xl lg:text-[32px] mb-8 md:mb-10 whitespace-nowrap gradient-text mt-8">1. Information We Collect</h2>
             <p className="mb-4">
               We collect information to provide and improve our Service:
@@ -38,6 +38,7 @@ const PrivacyPage = () => {
               <li><strong>Personal Information:</strong> Name, email, phone number, and payment details when you register or make transactions.</li>
               <li><strong>Usage Data:</strong> Information about how you interact with the Service, such as chat logs, quest completions, community posts, and device information (e.g., IP address, browser type).</li>
               <li><strong>AI Interaction Content:</strong> The text, queries, and content you share during chat interactions with Budlee AI.</li>
+              <li><strong>Audio & Voice Data:</strong> When using our microphone-enabled voice-to-text or speech-to-text chat tools, we access your device's microphone to transcribe your spoken queries. This access requires your system permission, and the captured audio is processed ephemerally to generate text transcripts. We do not store raw audio recordings on our servers.</li>
               <li><strong>Payment Information:</strong> Processed via third-party providers like Stripe and RazorPay; we do not store full payment details on our servers.</li>
             </ul>
 
