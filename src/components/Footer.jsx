@@ -10,6 +10,13 @@ const ThreadsIcon = ({ className }) => (
   </svg>
 );
 
+// Linktree icon component
+const LinktreeIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M7.953 15.066c-.08.163-.08.324-.08.486.08.517.528.897 1.052.897h2.107v5.331c0 .58.47 1.057 1.053 1.057.583 0 1.054-.477 1.054-1.057v-5.331h2.107c.54 0 .988-.38 1.052-.897.016-.162 0-.323-.08-.486l-3.133-5.76 3.133-3.217c.14-.141.22-.33.22-.536a.749.749 0 0 0-.753-.748h-1.903L13.858 2.19A1.057 1.057 0 0 0 12.804 1c-.514 0-.955.37-1.053.897L10.787 4.805H8.884a.749.749 0 0 0-.752.748c0 .206.08.395.22.536l3.133 3.218-3.532 5.759z" />
+  </svg>
+);
+
 // WhatsApp icon component
 const WhatsAppIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -112,6 +119,9 @@ const Footer = ({
               </a>
               <a href="https://www.threads.com/@budlee.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
                 <ThreadsIcon className="w-5 h-5" />
+              </a>
+              <a href="https://linktr.ee/budlee.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
+                <LinktreeIcon className="w-5 h-5" />
               </a>
             </div>
 

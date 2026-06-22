@@ -12,6 +12,7 @@ import ParentsSection from '../components/ParentsSection';
 import Footer from '../components/Footer';
 import PromoBanner from '../components/PromoBanner';
 import AppDownloadSection from '../components/AppDownloadSection';
+import EcosystemCarousel from '../components/EcosystemCarousel';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -35,6 +36,7 @@ const LandingPage = () => {
         <PracticeSection videoUrl={questVideo} />
         <CuriositySection />
         <ParentsSection />
+        <EcosystemCarousel />
       </main>
       <Footer />
     </div>
