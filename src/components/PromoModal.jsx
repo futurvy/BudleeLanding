@@ -8,12 +8,21 @@ const BACKEND_URL = "https://apis.budlee.ai/api";
 
 const PromoModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [promotions, setPromotions] = useState([]);
+  const [allPromotions, setAllPromotions] = useState([]);
+  const [dismissedPromoIds, setDismissedPromoIds] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem('dismissed_promo_modal_ids');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+  const promotions = React.useMemo(() => {
+    return allPromotions.filter(p => !dismissedPromoIds.includes(p.id));
+  }, [allPromotions, dismissedPromoIds]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState({});
-
-  const DISMISSAL_KEY = 'budlee_promo_dismissed_v1';
 
   // Fetch promotions once on mount
   useEffect(() => {
@@ -25,13 +34,15 @@ const PromoModal = () => {
         const promoList = (Array.isArray(data) ? data : (data.results || []))
           .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
 
-        setPromotions(promoList);
+        setAllPromotions(promoList);
         window.dispatchEvent(new CustomEvent('promos-updated', { detail: { count: promoList.length } }));
 
-        if (promoList.length > 0) {
-          if (!localStorage.getItem(DISMISSAL_KEY)) {
-            setIsOpen(true);
-          }
+        const storedDismissed = sessionStorage.getItem('dismissed_promo_modal_ids');
+        const dismissedIds = storedDismissed ? JSON.parse(storedDismissed) : [];
+        const activeUndismissed = promoList.filter(p => !dismissedIds.includes(p.id));
+
+        if (activeUndismissed.length > 0) {
+          setIsOpen(true);
         }
       } catch (error) {
         console.error("Error fetching promotions:", error);
@@ -84,7 +95,14 @@ const PromoModal = () => {
 
   const handleManualClose = () => {
     setIsOpen(false);
-    localStorage.setItem(DISMISSAL_KEY, 'true');
+    const visibleIds = promotions.map(p => p.id);
+    const updatedDismissed = [...dismissedPromoIds, ...visibleIds];
+    setDismissedPromoIds(updatedDismissed);
+    try {
+      sessionStorage.setItem('dismissed_promo_modal_ids', JSON.stringify(updatedDismissed));
+    } catch (error) {
+      console.error('[PromoModal] Failed to store dismissed IDs:', error);
+    }
   };
 
   const nextPromo = (e) => {

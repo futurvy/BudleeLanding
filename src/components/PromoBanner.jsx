@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, X } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = "https://apis.budlee.ai/api";
@@ -7,6 +7,14 @@ const BACKEND_URL = "https://apis.budlee.ai/api";
 const PromoBanner = () => {
     const [promotions, setPromotions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [dismissedPromoIds, setDismissedPromoIds] = useState(() => {
+        try {
+            const stored = sessionStorage.getItem('dismissed_promotions');
+            return stored ? JSON.parse(stored) : [];
+        } catch {
+            return [];
+        }
+    });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -18,7 +26,7 @@ const PromoBanner = () => {
                 const promoList = Array.isArray(rawData) ? rawData : (rawData.results || []);
 
                 const bannerPromos = promoList
-                    .filter(p => p.program_name && p.program_name.trim() !== '')
+                    .filter(p => p.program_name && p.program_name.trim() !== '' && !dismissedPromoIds.includes(p.id))
                     .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
 
                 setPromotions(bannerPromos);
@@ -30,7 +38,7 @@ const PromoBanner = () => {
         };
 
         fetchPromotions();
-    }, []);
+    }, [dismissedPromoIds]);
 
     // Auto-scrolling logic
     useEffect(() => {
@@ -59,6 +67,21 @@ const PromoBanner = () => {
         }));
     };
 
+    const handleDismiss = (e) => {
+        if (e) e.stopPropagation();
+        if (!currentPromo) return;
+        const updatedDismissed = [...dismissedPromoIds, currentPromo.id];
+        setDismissedPromoIds(updatedDismissed);
+        try {
+            sessionStorage.setItem('dismissed_promotions', JSON.stringify(updatedDismissed));
+        } catch (err) {
+            console.error("Error setting dismissed promotions:", err);
+        }
+        if (currentIndex >= promotions.length - 1) {
+            setCurrentIndex(Math.max(0, promotions.length - 2));
+        }
+    };
+
     if (loading || promotions.length === 0) return null;
 
     const currentPromo = promotions[currentIndex];
@@ -77,8 +100,16 @@ const PromoBanner = () => {
         <div className="w-full py-4 md:py-6 px-4 flex justify-center items-center">
             <div
                 onClick={openPromoModal}
-                className="group relative flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-4 bg-[#ecfdf5] border-2 border-emerald-500/10 px-4 py-3 md:px-8 md:py-3.5 rounded-2xl md:rounded-full shadow-[0_4px_25px_-5px_rgba(16,185,129,0.1),0_2px_10px_-3px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.25)] hover:bg-[#d1fae5] hover:-translate-y-0.5 transition-all duration-500 cursor-pointer max-w-full md:max-w-fit overflow-hidden"
+                className="group relative flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-4 bg-[#ecfdf5] border-2 border-emerald-500/10 pl-4 pr-10 py-3 md:pl-8 md:pr-14 md:py-3.5 rounded-2xl md:rounded-full shadow-[0_4px_25px_-5px_rgba(16,185,129,0.1),0_2px_10px_-3px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.25)] hover:bg-[#d1fae5] hover:-translate-y-0.5 transition-all duration-500 cursor-pointer max-w-full md:max-w-fit overflow-hidden"
             >
+                {/* Close Button */}
+                <button
+                    onClick={handleDismiss}
+                    className="absolute top-1/2 -translate-y-1/2 right-2.5 md:right-4 p-1 bg-black/5 hover:bg-black/10 rounded-full text-black/60 transition-all z-20 hover:scale-105 active:scale-95 border border-black/5 flex items-center justify-center"
+                    title="Dismiss announcement"
+                >
+                    <X className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                </button>
                 {/* Advanced Shimmer Animation Effect */}
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                     <div className="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] animate-banner-shimmer"></div>
