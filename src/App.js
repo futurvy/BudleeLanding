@@ -23,6 +23,7 @@ import BlogArticlePage from "./pages/BlogArticlePage";
 import HelpArticlePage from "./pages/HelpArticlePage";
 import WhatsAppButton from "./components/WhatsAppButton";
 import PromoModal from "./components/PromoModal";
+import OfficialLaunchPage from "./pages/OfficialLaunchPage";
 
 // Scroll to top component
 function ScrollToTop() {
@@ -35,6 +36,21 @@ function ScrollToTop() {
   return null;
 }
 
+// Global elements component to conditionally hide items on specific pages
+function GlobalElements() {
+  const { pathname } = useLocation();
+  const isLaunchPage = pathname === "/official-launch";
+
+  if (isLaunchPage) return null;
+
+  return (
+    <>
+      <WhatsAppButton />
+      <PromoModal />
+    </>
+  );
+}
+
 function App() {
   return (
     <div className="App">
@@ -45,8 +61,7 @@ function App() {
         }}
       >
         <ScrollToTop />
-        <WhatsAppButton />
-        <PromoModal />
+        <GlobalElements />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/schools" element={<SchoolsPage />} />
@@ -70,6 +85,7 @@ function App() {
           <Route path="/faqs" element={<FaqsPage />} />
           <Route path="/book-demo" element={<LandingPage />} />
           <Route path="/partner-programs" element={<LandingPage />} />
+          <Route path="/official-launch" element={<OfficialLaunchPage />} />
         </Routes>
       </BrowserRouter>
     </div>
