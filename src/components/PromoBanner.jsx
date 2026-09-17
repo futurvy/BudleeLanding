@@ -27,7 +27,7 @@ const PromoBanner = () => {
 
                 const bannerPromos = promoList
                     .filter(p => p.program_name && p.program_name.trim() !== '' && !dismissedPromoIds.includes(p.id))
-                    .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
+                    .sort((a, b) => (a.order_number || a.order || 0) - (b.order_number || b.order || 0));
 
                 setPromotions(bannerPromos);
             } catch (error) {
@@ -52,16 +52,17 @@ const PromoBanner = () => {
     }, [promotions.length]);
 
     const nextPromo = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         setCurrentIndex((prev) => (prev + 1) % promotions.length);
     };
 
     const prevPromo = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         setCurrentIndex((prev) => (prev - 1 + promotions.length) % promotions.length);
     };
 
     const openPromoModal = () => {
+        if (!currentPromo) return;
         window.dispatchEvent(new CustomEvent('open-promo-modal', {
             detail: { promotionId: currentPromo.id }
         }));
@@ -85,27 +86,59 @@ const PromoBanner = () => {
     if (loading || promotions.length === 0) return null;
 
     const currentPromo = promotions[currentIndex];
+    if (!currentPromo || !currentPromo.program_name) return null;
 
-    // Improved Parsing Logic
+    // Parsing Logic
     const fullText = (currentPromo.program_name || "").trim();
     const hasLive = fullText.toLowerCase().startsWith("live |");
     const contentText = hasLive ? fullText.slice(6).trim() : fullText;
 
-    // Split on the character '|' to separate title and info
-    const parts = contentText.split('|').map(p => p.trim());
-    const displayTitle = parts[0];
-    const displaySecondary = parts[1];
+    // Split on '|' delimiter
+    const parts = contentText.split('|').map(p => p.trim()).filter(Boolean);
+    const displayTitle = parts[0] || '';
+    const displaySecondary = parts[1] || '';
+    const extraLines = parts.slice(2);
+
+    const renderFormattedSecondary = (text) => {
+        if (!text) return null;
+        const regex = /["“]([^"”]+)["”]/g;
+        if (!regex.test(text)) {
+            return text;
+        }
+        regex.lastIndex = 0;
+        const elements = [];
+        let lastIndex = 0;
+        let match;
+
+        while ((match = regex.exec(text)) !== null) {
+            if (match.index > lastIndex) {
+                elements.push(text.slice(lastIndex, match.index));
+            }
+            elements.push(
+                <span key={match.index} className="font-extrabold text-sm md:text-[17px] text-[#1e293b] mx-0.5">
+                    {match[1]}
+                </span>
+            );
+            lastIndex = regex.lastIndex;
+        }
+
+        if (lastIndex < text.length) {
+            elements.push(text.slice(lastIndex));
+        }
+
+        return elements;
+    };
 
     return (
-        <div className="w-full py-4 md:py-6 px-4 flex justify-center items-center">
+        <div className="w-full py-3 md:py-5 px-4 flex justify-center items-center">
             <div
                 onClick={openPromoModal}
-                className="group relative flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-4 bg-[#ecfdf5] border-2 border-emerald-500/10 pl-4 pr-10 py-3 md:pl-8 md:pr-14 md:py-3.5 rounded-2xl md:rounded-full shadow-[0_4px_25px_-5px_rgba(16,185,129,0.1),0_2px_10px_-3px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.25)] hover:bg-[#d1fae5] hover:-translate-y-0.5 transition-all duration-500 cursor-pointer max-w-full md:max-w-fit overflow-hidden"
+                className="group relative flex flex-col items-center justify-center gap-1.5 bg-[#ecfdf5] border-2 border-emerald-500/10 px-6 py-3 md:px-10 md:py-3.5 rounded-2xl md:rounded-[26px] shadow-[0_4px_25px_-5px_rgba(16,185,129,0.1),0_2px_10px_-3px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.25)] hover:bg-[#d1fae5] hover:-translate-y-0.5 transition-all duration-500 cursor-pointer max-w-full md:max-w-fit overflow-hidden text-center"
             >
                 {/* Close Button */}
                 <button
                     onClick={handleDismiss}
-                    className="absolute top-1/2 -translate-y-1/2 right-2.5 md:right-4 p-1 bg-black/5 hover:bg-black/10 rounded-full text-black/60 transition-all z-20 hover:scale-105 active:scale-95 border border-black/5 flex items-center justify-center"
+                    className="absolute top-2.5 right-2.5 md:top-3 md:right-3.5 p-1 bg-black/5 hover:bg-black/10 rounded-full text-black/60 transition-all z-20 hover:scale-105 active:scale-95 border border-black/5 flex items-center justify-center"
                     title="Dismiss announcement"
                 >
                     <X className="w-3 h-3 md:w-3.5 md:h-3.5" />
@@ -115,74 +148,67 @@ const PromoBanner = () => {
                     <div className="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] animate-banner-shimmer"></div>
                 </div>
 
-                {/* HAPPENING NOW Badge */}
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-[#22c55e] rounded-full flex-shrink-0 shadow-sm shadow-green-500/20 relative z-10">
-                    <div className="w-2.5 h-2.5 bg-white rounded-full flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 bg-[#16a34a] rounded-full animate-ping"></div>
-                    </div>
-                    <span className="text-[9px] md:text-[11px] font-black text-white uppercase tracking-[0.12em] whitespace-nowrap">HAPPENING NOW</span>
-                </div>
-
-                <div className="flex items-center gap-1 md:gap-4 flex-grow md:flex-grow-0 min-w-0 relative z-10">
-                    {/* Navigation Arrows (Prev) */}
-                    {promotions.length > 1 && (
-                        <button
-                            onClick={prevPromo}
-                            className="p-1 hover:bg-black/5 rounded-full text-[#94a3b8] hover:text-[#22c55e] transition-all flex-shrink-0"
-                            aria-label="Previous promotion"
-                        >
-                            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
-                        </button>
-                    )}
-
-                    {/* Main Content Info */}
-                    <div className="flex items-center gap-1.5 md:gap-3 overflow-hidden">
-                        {hasLive && (
-                            <>
-                                <div className="w-2 h-2 bg-[#22c55e]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <div className="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></div>
-                                </div>
-                                <span className="font-extrabold text-[#059669] text-sm md:text-[19px] tracking-tight">LIVE</span>
-                            </>
-                        )}
-                        <span className="font-black text-[#1e293b] text-sm md:text-[19px] truncate tracking-tight">
-                            {displayTitle}
-                        </span>
-                    </div>
-
-                    {/* Navigation Arrows (Next) */}
-                    {promotions.length > 1 && (
-                        <button
-                            onClick={nextPromo}
-                            className="p-1 hover:bg-black/5 rounded-full text-[#94a3b8] hover:text-[#22c55e] transition-all flex-shrink-0"
-                            aria-label="Next promotion"
-                        >
-                            <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
-                        </button>
-                    )}
-                </div>
-
-                {/* Vertical Line Separator (only on Desktop) */}
-                {(displaySecondary || currentPromo.button_name) && (
-                    <div className="hidden md:block w-px h-6 bg-emerald-200/50 mx-1 relative z-10"></div>
-                )}
-
-                {/* Secondary Info & Dynamic CTA */}
-                <div className="flex items-center gap-3 md:gap-5 flex-shrink-0 relative z-10">
-                    {displaySecondary && (
-                        <span className="text-[11px] md:text-[15px] text-[#64748b] font-medium whitespace-nowrap">
-                            {displaySecondary}
-                        </span>
-                    )}
-
+                {/* Row 1: Action Button & Navigation */}
+                <div className="flex items-center justify-center gap-2 md:gap-3 relative z-10">
                     {currentPromo.button_name && (
-                        <div className="flex items-center gap-1.5 md:gap-2">
-                            <div className="w-1 h-1 bg-emerald-300 rounded-full hidden md:block"></div>
-                            <span className="text-[13px] md:text-[19px] font-black text-[#10b981] group-hover:text-[#059669] flex items-center gap-1 md:gap-1.5 transition-all duration-300">
-                                {currentPromo.button_name} <ArrowRight className="w-4 h-4 md:w-6 md:h-6 stroke-[3px] group-hover:translate-x-1.5 transition-transform" />
+                        <div className="flex items-center gap-1.5 md:gap-2 px-3 py-1 bg-emerald-600 text-white rounded-full group-hover:bg-emerald-700 transition-all duration-300 shadow-sm">
+                            <span className="text-[10px] md:text-xs font-black uppercase tracking-wider whitespace-nowrap">
+                                {currentPromo.button_name}
                             </span>
+                            <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-1 transition-transform" />
                         </div>
                     )}
+
+                    {promotions.length > 1 && (
+                        <div className="flex items-center gap-1 bg-black/5 rounded-full p-0.5">
+                            <button
+                                onClick={prevPromo}
+                                className="p-0.5 hover:bg-black/10 rounded-full text-black/60 transition-all flex-shrink-0"
+                                aria-label="Previous promotion"
+                            >
+                                <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                            </button>
+                            <span className="text-[8px] md:text-[9px] font-bold text-black/40 px-1">
+                                {currentIndex + 1}/{promotions.length}
+                            </span>
+                            <button
+                                onClick={nextPromo}
+                                className="p-0.5 hover:bg-black/10 rounded-full text-black/60 transition-all flex-shrink-0"
+                                aria-label="Next promotion"
+                            >
+                                <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                {/* Row 2: Program Name Lines (Centered) */}
+                <div className="relative z-10 flex flex-col items-center justify-center text-center gap-0.5">
+                    {/* Line 1: Title */}
+                    <div className="flex items-center justify-center gap-1.5 md:gap-2">
+                        {hasLive && (
+                            <div className="px-1.5 py-0.5 rounded bg-red-500 text-[8px] md:text-[9px] font-black text-white leading-none shadow-sm flex-shrink-0">
+                                LIVE
+                            </div>
+                        )}
+                        <h3 className="font-black text-[#1e293b] text-sm md:text-lg tracking-tight leading-tight">
+                            {displayTitle}
+                        </h3>
+                    </div>
+
+                    {/* Line 2: Subtitle with Quote Emphasis */}
+                    {displaySecondary && (
+                        <p className="font-medium text-[#475569] text-xs md:text-sm tracking-tight leading-snug">
+                            {renderFormattedSecondary(displaySecondary)}
+                        </p>
+                    )}
+
+                    {/* Line 3+: Small Under-Text */}
+                    {extraLines.length > 0 && extraLines.map((line, idx) => (
+                        <p key={idx} className="text-[9px] md:text-[10.5px] text-[#64748b]/80 font-normal tracking-normal leading-tight mt-0.5">
+                            {line}
+                        </p>
+                    ))}
                 </div>
             </div>
 

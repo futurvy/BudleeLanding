@@ -11,8 +11,7 @@ import { cn } from '../lib/utils';
 const API_BASE_URL = "https://apis.budlee.ai/api";
 
 const formatPrice = (price, currency, fractionDigits = 0) => {
-  const symbols = {
-    'INR': '₹',
+    const symbols = {
     'SAR': 'SR',
     'QAR': 'QR',
     'AED': 'AED',
@@ -121,10 +120,19 @@ const PlanCard = ({ plan, cycle, currency, isPopular }) => {
         <div className="mb-2">
           {!isComingSoon ? (
             <div className="flex flex-col items-center">
-              <div className="flex items-baseline justify-center gap-1">
+              <div className="flex items-baseline justify-center gap-1 sm:gap-1.5 flex-nowrap whitespace-nowrap">
                 <span className="text-3xl font-black text-gray-800 tracking-tight">{formatPrice(price, currency)}</span>
                 {!isFree && (
-                  <span className="text-gray-500 text-xs font-bold">/{cycle === 'yearly' ? 'year' : cycle === 'weekly' ? 'week' : 'month'}</span>
+                  <div className="inline-flex flex-col items-start justify-end ml-1 self-stretch pb-0.5">
+                    {currency === 'INR' && price > 0 && (
+                      <span className="text-[8px] sm:text-[9px] font-semibold text-gray-500 leading-tight mb-0.5 whitespace-nowrap">
+                        (+{formatPrice(price * 0.18, currency, 0)} Taxes)
+                      </span>
+                    )}
+                    <span className="text-gray-500 text-xs font-bold leading-none">
+                      /{cycle === 'yearly' ? 'year' : cycle === 'weekly' ? 'week' : 'month'}
+                    </span>
+                  </div>
                 )}
               </div>
               {!isFree && (

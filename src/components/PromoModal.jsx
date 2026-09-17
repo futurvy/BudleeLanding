@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
@@ -17,9 +17,12 @@ const PromoModal = () => {
       return [];
     }
   });
-  const promotions = React.useMemo(() => {
-    return allPromotions.filter(p => !dismissedPromoIds.includes(p.id));
-  }, [allPromotions, dismissedPromoIds]);
+
+  // All active promotions available on LandingPage
+  const promotions = useMemo(() => {
+    return allPromotions.filter(p => p.is_active !== false);
+  }, [allPromotions]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState({});
@@ -32,18 +35,10 @@ const PromoModal = () => {
         const response = await axios.get(`${BACKEND_URL}/superadmin/promotions/?platform=LandingPage&is_active=true`);
         const data = response.data;
         const promoList = (Array.isArray(data) ? data : (data.results || []))
-          .sort((a, b) => (a.order_number || 0) - (b.order_number || 0));
+          .sort((a, b) => (a.order_number || a.order || 0) - (b.order_number || b.order || 0));
 
         setAllPromotions(promoList);
         window.dispatchEvent(new CustomEvent('promos-updated', { detail: { count: promoList.length } }));
-
-        const storedDismissed = sessionStorage.getItem('dismissed_promo_modal_ids');
-        const dismissedIds = storedDismissed ? JSON.parse(storedDismissed) : [];
-        const activeUndismissed = promoList.filter(p => !dismissedIds.includes(p.id));
-
-        if (activeUndismissed.length > 0) {
-          setIsOpen(true);
-        }
       } catch (error) {
         console.error("Error fetching promotions:", error);
         window.dispatchEvent(new CustomEvent('promos-updated', { detail: { count: 0 } }));
@@ -55,7 +50,25 @@ const PromoModal = () => {
     fetchPromotions();
   }, []);
 
-  // Handle external events in a separate effect to avoid re-fetching
+  // Auto-open logic on load: only auto-open if there are undismissed promotions
+  const hasAutoOpenedRef = useRef(false);
+  useEffect(() => {
+    if (hasAutoOpenedRef.current || loading) return;
+
+    if (promotions.length > 0) {
+      const activeUndismissed = promotions.filter(p => !dismissedPromoIds.includes(p.id));
+      if (activeUndismissed.length > 0) {
+        hasAutoOpenedRef.current = true;
+        const firstIdx = promotions.findIndex(p => p.id === activeUndismissed[0].id);
+        if (firstIdx !== -1) setCurrentIndex(firstIdx);
+        setIsOpen(true);
+      } else {
+        hasAutoOpenedRef.current = true;
+      }
+    }
+  }, [promotions, loading, dismissedPromoIds]);
+
+  // Handle external events to open modal
   useEffect(() => {
     const handleOpenExternal = (event) => {
       if (event.detail && event.detail.promotionId) {
@@ -80,7 +93,7 @@ const PromoModal = () => {
       window.removeEventListener('open-promo-modal', handleOpenExternal);
       window.removeEventListener('query-promo-status', handleQueryStatus);
     };
-  }, [promotions]); // Re-bind when promotions change to ensure handlers have latest state
+  }, [promotions]);
 
   // Auto-scrolling logic
   useEffect(() => {
@@ -96,7 +109,7 @@ const PromoModal = () => {
   const handleManualClose = () => {
     setIsOpen(false);
     const visibleIds = promotions.map(p => p.id);
-    const updatedDismissed = [...dismissedPromoIds, ...visibleIds];
+    const updatedDismissed = Array.from(new Set([...dismissedPromoIds, ...visibleIds]));
     setDismissedPromoIds(updatedDismissed);
     try {
       sessionStorage.setItem('dismissed_promo_modal_ids', JSON.stringify(updatedDismissed));
@@ -119,13 +132,22 @@ const PromoModal = () => {
     setImagesLoaded(prev => ({ ...prev, [id]: true }));
   };
 
-  if (loading || promotions.length === 0) return null;
+  if (promotions.length === 0) return null;
 
-  const currentPromo = promotions[currentIndex];
+  const currentPromo = promotions[currentIndex] || promotions[0];
+  if (!currentPromo) return null;
+
   const isCurrentImageLoaded = imagesLoaded[currentPromo.id];
 
+  const rawPoster = currentPromo.poster_image_url || currentPromo.poster_image;
+  let posterUrl = rawPoster;
+  if (posterUrl && !posterUrl.startsWith('http://') && !posterUrl.startsWith('https://')) {
+    const cleanPath = posterUrl.startsWith('/') ? posterUrl.slice(1) : posterUrl;
+    posterUrl = `${BACKEND_URL.replace(/\/api$/, '')}/${cleanPath}`;
+  }
+
   return (
-    <DialogPrimitive.Root open={isOpen} onOpenChange={(open) => { if (!open) setIsOpen(false); }}>
+    <DialogPrimitive.Root open={isOpen} onOpenChange={(open) => { if (!open) handleManualClose(); }}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
@@ -143,39 +165,37 @@ const PromoModal = () => {
 
             {/* Core Interaction Area */}
             <div className="relative flex items-center justify-center w-full">
+              {/* External Arrows - Desktop Only */}
+              {promotions.length > 1 && isCurrentImageLoaded && (
+                <>
+                  <button
+                    onClick={prevPromo}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
+                  >
+                    <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+                  </button>
+                  <button
+                    onClick={nextPromo}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
+                  >
+                    <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+                  </button>
+                </>
+              )}
+
+              {/* Close Button - Always Visible */}
+              <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-[80]">
+                <button
+                  onClick={handleManualClose}
+                  className="p-2 sm:p-2.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-300 hover:rotate-90 active:scale-90 focus:outline-none border border-white/30 backdrop-blur-md shadow-lg"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+              </div>
+
               {/* The Poster Area */}
               <div className="relative w-full sm:w-auto overflow-visible group">
-                {/* External Arrows - Desktop Only - Now Overlayed */}
-                {promotions.length > 1 && isCurrentImageLoaded && (
-                  <>
-                    <button
-                      onClick={prevPromo}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
-                    >
-                      <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
-                    </button>
-                    <button
-                      onClick={nextPromo}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 active:scale-90 backdrop-blur-md z-[70] hidden sm:flex border border-white/30 shadow-lg"
-                    >
-                      <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
-                    </button>
-                  </>
-                )}
-
-                {/* Small Close Button - Overlayed Top Corner */}
-                {isCurrentImageLoaded && (
-                  <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-[80] animate-in fade-in duration-500">
-                    <button
-                      onClick={handleManualClose}
-                      className="p-2 sm:p-2.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all duration-300 hover:rotate-90 active:scale-90 focus:outline-none border border-white/30 backdrop-blur-md shadow-lg"
-                      aria-label="Close"
-                    >
-                      <X className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
-                  </div>
-                )}
-
                 <div className="relative overflow-hidden rounded-[10px] sm:rounded-[24px] shadow-[0_40px_80px_rgba(0,0,0,0.9)] flex items-center justify-center">
 
                   {/* Shimmer Placeholder */}
@@ -186,9 +206,10 @@ const PromoModal = () => {
                   )}
 
                   <img
-                    src={currentPromo.poster_image_url || currentPromo.poster_image}
+                    src={posterUrl}
                     alt={`Promotion ${currentIndex + 1}`}
                     onLoad={() => handleImageLoad(currentPromo.id)}
+                    onError={() => handleImageLoad(currentPromo.id)}
                     className={`w-full sm:w-auto h-auto max-w-full max-h-[75vh] md:max-h-[80vh] object-contain select-none align-middle block transition-opacity duration-700 ${isCurrentImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     onContextMenu={(e) => e.preventDefault()}
                   />
@@ -240,13 +261,13 @@ const PromoModal = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block group"
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => handleManualClose()}
                     >
                       <Button
                         className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-400 hover:from-green-600 hover:via-emerald-600 hover:to-teal-500 text-white font-bold py-3.5 sm:py-4 text-base sm:text-lg rounded-xl sm:rounded-2xl shadow-[0_15px_30px_rgba(16,185,129,0.3)] transform transition-all duration-300 group-hover:scale-[1.02] active:scale-[0.98] border border-white/20 uppercase tracking-widest flex items-center justify-center gap-2"
                       >
                         {currentPromo.button_name}
-                        <span className="text-lg sm:text-xl group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="text-lg sm:text-xl group-hover:translate-x-1 transition-transform">&rarr;</span>
                       </Button>
                     </a>
                   </div>
