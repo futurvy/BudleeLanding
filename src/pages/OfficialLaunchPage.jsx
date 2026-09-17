@@ -270,12 +270,7 @@ const OfficialLaunchPage = () => {
 
         {/* Top Logo Badge - floating and glowing */}
         <div className="flex flex-col items-center mb-6 animate-fade-in-down select-none">
-          <div className="flex flex-col items-end">
-            <img src="/images/logo_wide.png" alt="Budlee AI" className="h-12 md:h-14 object-contain" />
-            <span className="text-sm md:text-base text-slate-300 mt-0 font-semibold tracking-wide">
-              Learn Better. Grow Curiosity.
-            </span>
-          </div>
+          <img src="/images/logo_tagline_white.png" alt="Budlee AI" className="h-14 md:h-16 object-contain" />
           <span className="text-sm md:text-base font-bold text-green-400 bg-green-950/50 px-5 py-2 rounded-full uppercase tracking-widest border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.15)] mt-3">
             Official Launch
           </span>

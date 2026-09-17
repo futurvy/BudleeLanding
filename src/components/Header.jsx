@@ -82,18 +82,13 @@ const Header = ({
       }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo - Clickable, links to home */}
-        <Link to="/" className="flex flex-col items-center hover:opacity-80 transition-opacity">
-          {/* Wide Logo */}
+        <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
           <img
-            src="/images/logo_wide.png"
+            src="/images/logo_tagline_black.png"
             alt="Budlee AI"
-            className="w-40 md:w-48 h-auto object-contain"
+            className="w-40 md:w-52 h-auto object-contain"
             onContextMenu={(e) => e.preventDefault()}
           />
-          {/* Slogan */}
-          <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
-            Learn Better. Grow Curiosity.
-          </span>
         </Link>
 
         {/* Navigation Menu */}

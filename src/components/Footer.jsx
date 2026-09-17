@@ -85,16 +85,13 @@ const Footer = ({
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
 
             {/* Left - Logo with Tagline */}
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center md:items-start">
               <img
-                src="/images/logo_wide.png"
+                src="/images/logo_tagline_black.png"
                 alt="Budlee AI"
-                className="w-40 md:w-48 h-auto object-contain"
+                className="w-40 md:w-52 h-auto object-contain"
                 onContextMenu={(e) => e.preventDefault()}
               />
-              <span className="text-xs md:text-sm text-gray-600 mt-1 font-medium">
-                Learn Better. Grow Curiosity.
-              </span>
             </div>
 
             {/* Center - Social Icons */}
